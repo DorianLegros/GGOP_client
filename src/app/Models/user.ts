@@ -1,13 +1,13 @@
 import {Ban} from './ban';
 
 export class User {
-  id: string;
+  id: number;
   pseudo: string;
   email: string;
   password: string;
   role: string[];
   isBanned: boolean;
-  riotServerId: string;
+  riotServerId: number;
   riotPseudo: string;
   riotAccountId: string;
   isRiotValidated: string;

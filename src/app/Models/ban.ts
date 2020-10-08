@@ -1,6 +1,6 @@
 export class Ban {
-  id: string;
-  userId: string;
+  id: number;
+  userId: number;
   isDefinitive: boolean;
   start: Date;
   end: Date;

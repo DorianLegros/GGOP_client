@@ -1,8 +1,8 @@
 import {User} from './user';
 
 export class RiotServer {
-  id: string;
+  id: number;
   name: string;
-  url: string;
+  apiRoute: string;
   users: User[];
 }
