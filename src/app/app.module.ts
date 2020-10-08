@@ -8,7 +8,6 @@ import { LandingComponent } from './Pages/landing/landing.component';
 import { SigninComponent } from './Pages/signin/signin.component';
 import { HomeComponent } from './Pages/home/home.component';
 import { TeamsListComponent } from './Pages/Teams/teams-list/teams-list.component';
-import { TeamCreationComponent } from './team-creation/team-creation.component';
 import { TeamCreationAndUpdateComponent } from './Pages/Teams/team-creation-and-update/team-creation-and-update.component';
 import { TeamDetailsComponent } from './Pages/Teams/team-details/team-details.component';
 import { TeamAlgorithmComponent } from './Pages/Teams/Modals/team-algorithm/team-algorithm.component';
@@ -30,6 +29,7 @@ import { UserProfileHonorComponent } from './Pages/Users/user-profile-honor/user
 import { UserProfileTeamsComponent } from './Pages/Users/user-profile-teams/user-profile-teams.component';
 import { UserProfileHistoryDetailsComponent } from './Pages/Users/user-profile-history-details/user-profile-history-details.component';
 import { UserProfileModificationComponent } from './Pages/Users/user-profile-modification/user-profile-modification.component';
+import { NavigationComponent } from './Pages/navigation/navigation.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +39,6 @@ import { UserProfileModificationComponent } from './Pages/Users/user-profile-mod
     SigninComponent,
     HomeComponent,
     TeamsListComponent,
-    TeamCreationComponent,
     TeamCreationAndUpdateComponent,
     TeamDetailsComponent,
     TeamAlgorithmComponent,
@@ -60,7 +59,8 @@ import { UserProfileModificationComponent } from './Pages/Users/user-profile-mod
     UserProfileHonorComponent,
     UserProfileTeamsComponent,
     UserProfileHistoryDetailsComponent,
-    UserProfileModificationComponent
+    UserProfileModificationComponent,
+    NavigationComponent
   ],
   imports: [
     BrowserModule,
