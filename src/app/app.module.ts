@@ -8,7 +8,6 @@ import { LandingComponent } from './Pages/landing/landing.component';
 import { SigninComponent } from './Pages/signin/signin.component';
 import { HomeComponent } from './Pages/home/home.component';
 import { TeamsListComponent } from './Pages/Teams/teams-list/teams-list.component';
-import { TeamCreationComponent } from './team-creation/team-creation.component';
 import { TeamCreationAndUpdateComponent } from './Pages/Teams/team-creation-and-update/team-creation-and-update.component';
 import { TeamDetailsComponent } from './Pages/Teams/team-details/team-details.component';
 import { TeamAlgorithmComponent } from './Pages/Teams/Modals/team-algorithm/team-algorithm.component';
@@ -39,7 +38,6 @@ import { UserProfileModificationComponent } from './Pages/Users/user-profile-mod
     SigninComponent,
     HomeComponent,
     TeamsListComponent,
-    TeamCreationComponent,
     TeamCreationAndUpdateComponent,
     TeamDetailsComponent,
     TeamAlgorithmComponent,
