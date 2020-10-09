@@ -6,7 +6,6 @@ export class User {
   email: string;
   password: string;
   role: string[];
-  isBanned: boolean;
   riotServerId: number;
   riotPseudo: string;
   riotAccountId: string;

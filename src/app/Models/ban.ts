@@ -4,4 +4,5 @@ export class Ban {
   isDefinitive: boolean;
   start: Date;
   end: Date;
+  motive: string;
 }
