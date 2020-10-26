@@ -5,3 +5,7 @@
 .loading {
   @include absCenter;
 }
+
+svg:hover {
+  fill: #333333!important;
+}

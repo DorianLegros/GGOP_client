@@ -1,0 +1,55 @@
+@import "../../Scss/abstracts/mixins";
+@import "../../Scss/abstracts/variables";
+
+.form {
+  @include absCenter;
+
+  h1 {
+    color: white;
+    text-align: center;
+    font-size: 3rem;
+  }
+
+  input {
+    width: 100%;
+    height: 50px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+
+    &::placeholder {
+      color: #333333;
+      text-align: center;
+
+    }
+  }
+
+  p, a{
+    text-align: center;
+    color: $color-white;
+    text-decoration: none;
+    font-size: 1.5rem;
+  }
+
+  a:hover {
+    color: $color-btn-edit;
+  }
+
+  &__btn-submit {
+    background-color: $color-btn-edit;
+    color: $color-white;
+    font-size: 2rem;
+    font-weight: lighter;
+
+    &:hover {
+      background-color: $color-btn-edit-hover;
+    }
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .form {
+    width: 80%;
+  }
+}
