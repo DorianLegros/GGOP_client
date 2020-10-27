@@ -4,11 +4,14 @@
 }
 
 body {
+  color: white;
   font-family: "Proxima Nova", sans-serif;
   font-weight: 400;
   /*font-size: 16px;*/
   line-height: 1.7;
   box-sizing: border-box;
+  max-width: 1200px;
+  margin: 0 auto;
 
   background-image: url("src/assets/images/background/background.jpg");
   background-position: center;
