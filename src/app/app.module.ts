@@ -2,6 +2,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+
 import { AppComponent } from './app.component';
 import { LoginComponent } from './Pages/login/login.component';
 import { LandingComponent } from './Pages/landing/landing.component';
@@ -29,6 +32,8 @@ import { UserProfileHonorComponent } from './Pages/Users/user-profile-honor/user
 import { UserProfileTeamsComponent } from './Pages/Users/user-profile-teams/user-profile-teams.component';
 import { UserProfileHistoryDetailsComponent } from './Pages/Users/user-profile-history-details/user-profile-history-details.component';
 import { UserProfileModificationComponent } from './Pages/Users/user-profile-modification/user-profile-modification.component';
+
+import { authInterceptorProviders } from './Helpers/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -62,9 +67,11 @@ import { UserProfileModificationComponent } from './Pages/Users/user-profile-mod
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [authInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
