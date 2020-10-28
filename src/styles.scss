@@ -29,6 +29,10 @@ $client-theme: mat-light-theme($client-primary, $client-accent, $client-warn);
 
 @import "app/app.component";
 
+.fix-navigation {
+  height: 60px;
+}
+
 .loading {
   @include absCenter;
 }
@@ -152,8 +156,7 @@ svg:hover {
   //background-color: $color-defeat;
   //border: 1px solid $color-defeat-2;
   max-width: 800px;
-  margin: 0 auto;
-  margin-top: 5px;
+  margin: 4px auto;
   padding: 10px;
   color: $color-grey-dark-3;
   font-size: 1.4rem;
@@ -176,6 +179,7 @@ svg:hover {
     .runes {
       display: inline-block;
       margin-left: 10px;
+
       img {
         display: block;
       }
@@ -185,6 +189,47 @@ svg:hover {
       display: inline-block;
       margin-left: 5px;
       border-radius: 2px;
+    }
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .historique-card {
+    margin: 4px;
+  }
+}
+
+/*
+ * Informations
+ */
+
+.report {
+  padding: 20px;
+  max-width: 300px;
+  margin: 0 auto;
+  height: 100px;
+
+  &__img,
+  &__txt {
+    width: 50%;
+    float: left;
+    text-align: center;
+
+    img {
+      width: 33.33%;
+    }
+
+    a {
+      line-height: 45px;
+      font-size: 1.5rem;
+      font-weight: lighter;
+      text-decoration: none;
+      color: $color-white;
+
+      &:hover {
+        color: $color-neutral;
+        @include transition;
+      }
     }
   }
 }
