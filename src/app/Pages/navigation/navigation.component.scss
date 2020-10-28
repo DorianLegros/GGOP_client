@@ -1,11 +1,12 @@
 @import "src/styles";
 
 .nav {
+  z-index: 9999;
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
   background-color: $color-black;
-  position: absolute;
+  position: fixed;
   bottom: 0;
 
   &__navigation {

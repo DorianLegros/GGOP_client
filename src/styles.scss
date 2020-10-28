@@ -149,22 +149,28 @@ svg:hover {
  */
 
 .historique-card {
-  background-color: $color-defeat;
-  border: 1px solid $color-defeat-2;
+  //background-color: $color-defeat;
+  //border: 1px solid $color-defeat-2;
   max-width: 800px;
   margin: 0 auto;
   margin-top: 5px;
   padding: 10px;
   color: $color-grey-dark-3;
-  font-size: 1.5rem;
+  font-size: 1.4rem;
 
   .champion,
   .items,
   .score-detail {
     width: 33.333333333333333333333%;
-    background-color: #406FDB;
+    height: 120px;
     text-align: center;
-    display: inline-block;
+    float: left;
+    position: relative;
+
+    .abscenter {
+      width: 100%;
+      @include absCenter;
+    }
 
     .summoners,
     .runes {
