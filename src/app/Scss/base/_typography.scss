@@ -1,0 +1,17 @@
+@font-face {
+  font-family: "Proxima Nova";
+  src: url("/../../../assets/fonts/Proxima Nova Thin.otf") format("opentype");
+}
+
+body {
+  color: white;
+  font-family: "Proxima Nova", sans-serif;
+  font-weight: 400;
+  /*font-size: 16px;*/
+  line-height: 1.7;
+  box-sizing: border-box;
+  max-width: 1200px;
+  margin: 0 auto;
+  background-image: url("https://lolstatic-a.akamaihd.net/frontpage/apps/prod/clash-2018/fr_FR/a46e742ae82f9d4f9db8e34ba57873e513e727b7/assets/static/img/backgrounds/team-creation-bg.jpg");
+  background-position: center;
+}
