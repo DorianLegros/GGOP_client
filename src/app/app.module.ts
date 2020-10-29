@@ -30,19 +30,20 @@ import { UserProfileHistoryDetailsComponent } from './Pages/Users/user-profile-h
 import { UserProfileModificationComponent } from './Pages/Users/user-profile-modification/user-profile-modification.component';
 import { NavigationComponent } from './Pages/navigation/navigation.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatButtonModule} from '@angular/material/button';
-import {MatCheckboxModule} from '@angular/material/checkbox';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatOptionModule} from '@angular/material/core';
-import {MatInputModule} from '@angular/material/input';
-import {MatSelectModule} from '@angular/material/select';
-import {MatIconModule} from '@angular/material/icon';
-import {MatTabsModule} from '@angular/material/tabs';
-import {MatDialogModule} from '@angular/material/dialog';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatOptionModule } from '@angular/material/core';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
+import { MatIconModule } from '@angular/material/icon';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatDialogModule } from '@angular/material/dialog';
 import { HonorComponent } from './Pages/Users/Modals/honor/honor.component';
-import {MatRadioModule} from '@angular/material/radio';
-import {FormsModule} from '@angular/forms';
+import { MatRadioModule } from '@angular/material/radio';
+import { FormsModule } from '@angular/forms';
 import { ReportComponent } from './Pages/Users/Modals/report/report.component';
+import {MatCardModule} from '@angular/material/card';
 
 
 @NgModule({
@@ -92,7 +93,8 @@ import { ReportComponent } from './Pages/Users/Modals/report/report.component';
     MatTabsModule,
     MatDialogModule,
     MatRadioModule,
-    FormsModule
+    FormsModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

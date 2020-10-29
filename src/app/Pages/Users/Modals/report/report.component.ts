@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class ReportComponent implements OnInit {
 
   favoriteReport: string;
-  reports: string[] = ['Bannez', 'Moi', 'Ça'];
+  reports: string[] = ['Sang-Froid', 'Super Leader', 'GG<3'];
   constructor() { }
 
   ngOnInit(): void {

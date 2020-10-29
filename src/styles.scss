@@ -3,7 +3,7 @@
 @include mat-core();
 $client-primary: mat-palette($mat-light-blue);
 $client-accent: mat-palette($mat-green, A200, A100, A400);
-$client-warn: mat-palette($mat-red);
+$client-warn: mat-palette($mat-red, A100);
 $client-theme: mat-light-theme($client-primary, $client-accent, $client-warn);
 @include angular-material-theme($client-theme);
 
@@ -218,12 +218,29 @@ svg:hover {
  * Modal Radio
  */
 
+.modal {
+
+  &__btn {
+    width: 100%;
+    padding: 10px !important;
+    color: $color-white !important;
+  }
+
+  img {
+    margin-right: 10px;
+  }
+}
+
 .mat-radio-button {
-  max-width: 100px!important;
-  margin: 0 auto;
-  display: unset!important;
+  max-width: 100px !important;
+  display: unset !important;
   font-size: 2rem;
 }
+
+.mat-radio-label {
+  margin: 10px 0!important;
+}
+
 .mat-dialog-container {
-  background-color: $color-;
+  background-color: whitesmoke;
 }
