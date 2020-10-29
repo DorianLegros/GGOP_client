@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {MatDialog, MatDialogConfig} from '@angular/material/dialog';
+import {HonorComponent} from '../Modals/honor/honor.component';
 
 @Component({
   selector: 'app-user-profile',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserProfileComponent implements OnInit {
 
-  constructor() { }
+  constructor(private dialog: MatDialog) { }
 
   ngOnInit(): void {
   }
 
+  openDialog() {
+    const dialogConfig = new MatDialogConfig();
+    this.dialog.open(HonorComponent, dialogConfig);
+  }
 }

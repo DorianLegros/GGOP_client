@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './Pages/login/login.component';
@@ -39,6 +38,11 @@ import {MatInputModule} from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
 import {MatIconModule} from '@angular/material/icon';
 import {MatTabsModule} from '@angular/material/tabs';
+import {MatDialogModule} from '@angular/material/dialog';
+import { HonorComponent } from './Pages/Users/Modals/honor/honor.component';
+import {MatRadioModule} from '@angular/material/radio';
+import {FormsModule} from '@angular/forms';
+
 
 @NgModule({
   declarations: [
@@ -69,7 +73,8 @@ import {MatTabsModule} from '@angular/material/tabs';
     UserProfileTeamsComponent,
     UserProfileHistoryDetailsComponent,
     UserProfileModificationComponent,
-    NavigationComponent
+    NavigationComponent,
+    HonorComponent
   ],
   imports: [
     BrowserModule,
@@ -82,7 +87,10 @@ import {MatTabsModule} from '@angular/material/tabs';
     MatInputModule,
     MatSelectModule,
     MatIconModule,
-    MatTabsModule
+    MatTabsModule,
+    MatDialogModule,
+    MatRadioModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
