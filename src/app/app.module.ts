@@ -42,6 +42,7 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { HonorComponent } from './Pages/Users/Modals/honor/honor.component';
 import {MatRadioModule} from '@angular/material/radio';
 import {FormsModule} from '@angular/forms';
+import { ReportComponent } from './Pages/Users/Modals/report/report.component';
 
 
 @NgModule({
@@ -74,7 +75,8 @@ import {FormsModule} from '@angular/forms';
     UserProfileHistoryDetailsComponent,
     UserProfileModificationComponent,
     NavigationComponent,
-    HonorComponent
+    HonorComponent,
+    ReportComponent
   ],
   imports: [
     BrowserModule,
