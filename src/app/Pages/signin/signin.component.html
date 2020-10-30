@@ -1,24 +1,49 @@
 <div class="form">
   <h1>Inscription</h1>
-  <form action="">
-    <label for="e-mail"></label>
-    <input type="text" id="e-mail" placeholder="E-mail" class="form__type-input">
+  <form *ngIf="!registerSuccessful" name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+    <label for="email"></label>
+    <input name="email" type="text" id="email" [(ngModel)]="newUser.email" maxlength="180" required email #email="ngModel" placeholder="Adresse email" class="form__type-input">
+    <div *ngIf="email.invalid && (email.touched)" class="alert alert-danger">
+      <div *ngIf="email.errors.email">Cette adresse mail n'est pas valide.</div>
+      <div *ngIf="email.errors.required">Une adresse mail doit être renseignée.</div>
+      <div *ngIf="email.errors.maxlength">Adresse email trop longue. 180 caractères max.</div>
+    </div>
 
     <label for="pseudo"></label>
-    <input type="text" id="pseudo" placeholder="Pseudo" class="form__type-input">
-
-    <label for="pseudo-riot"></label>
-    <input type="text" id="pseudo-riot" placeholder="Pseudo Riot" class="form__type-input">
+    <input name="pseudo" type="text" id="pseudo" [(ngModel)]="newUser.pseudo" maxlength="25" required #pseudo="ngModel" placeholder="Pseudo" class="form__type-input">
+    <div *ngIf="pseudo.invalid && (pseudo.touched)" class="alert alert-danger">
+      <div *ngIf="pseudo.errors.required">Un pseudo doit être renseigné.</div>
+      <div *ngIf="pseudo.errors.maxlength">Pseudo trop long. 25 caractères max.</div>
+    </div>
 
     <label for="password"></label>
-    <input type="password" id="password" placeholder="Mot de passe" class="form__type-input">
+    <input name="password" type="password" id="password" [(ngModel)]="newUser.password" maxlength="255" required #password="ngModel" placeholder="Mot de passe" class="form__type-input">
+    <div *ngIf="password.invalid && (password.touched)" class="alert alert-danger">
+      <div *ngIf="password.errors.required">Un mot de passe doit être renseigné.</div>
+      <div *ngIf="password.errors.maxlength">Mot de passe trop long. 255 caractères max.</div>
+    </div>
+
+    <label for="pseudo-riot"></label>
+    <input name="pseudo-riot" type="text" id="pseudo-riot" [(ngModel)]="newUser.riot_pseudo" maxlength="22" required #riotPseudo="ngModel" placeholder="Pseudo Riot" class="form__type-input">
+    <div *ngIf="riotPseudo.invalid && (riotPseudo.touched)" class="alert alert-danger">
+      <div *ngIf="riotPseudo.errors.required">Un pseudo Riot doit être renseigné.</div>
+      <div *ngIf="riotPseudo.errors.maxlength">Pseudo trop long. 22 caractères max.</div>
+    </div>
+
+    <label for="serveur-riot"></label>
+    <select name="serveur-riot" id="serveur-riot" [(ngModel)]="newUser.riot_server" required #riotServer="ngModel">
+      <option *ngFor="let riotServ of riotServersList" value="{{riotServ.id}}">{{riotServ.name}}</option>
+    </select>
+    <div *ngIf="riotServer.invalid && (riotServer.touched)" class="alert alert-danger">
+      <div *ngIf="riotServer.errors.required">Une serveur Riot doit être renseigné.</div>
+    </div>
 
     <p>Déjà inscrit ? <a href="http://localhost:4200/connexion">Connectez-vous</a></p>
 
-
-    <mat-checkbox color="primary" id="checkbox"></mat-checkbox>
+    <mat-checkbox [(ngModel)]="policyAccepted" color="primary" id="checkbox" name="policy"></mat-checkbox>
     <label for="checkbox">I agree Private Policy</label>
 
-    <input type="submit" class="form__btn-submit" value="Commencer !">
+    <input *ngIf="policyAccepted && f.form.valid" type="submit" class="form__btn-submit" value="Valider">
+    <input *ngIf="!policyAccepted || !f.form.valid" type="submit" disabled class="form__btn-submit disabled" value="Valider">
   </form>
 </div>

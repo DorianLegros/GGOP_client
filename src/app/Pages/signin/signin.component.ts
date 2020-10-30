@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../Services/auth.service';
+import {RiotServer} from '../../Models/riot-server';
 
 @Component({
   selector: 'app-signin',
@@ -8,16 +9,20 @@ import { AuthService } from '../../Services/auth.service';
 })
 export class SigninComponent implements OnInit {
   newUser: any = {};
+  riotServersList: RiotServer[];
+  policyAccepted = false;
   registerSuccessful = false;
   registerFailed = false;
   errorMessage = '';
 
   constructor(private authService: AuthService) { }
 
-  ngOnInit(): void {
+  ngOnInit(): void {}
+
+  onSubmit() {
+    console.log(this.newUser);
     this.authService.register(this.newUser).subscribe(
       data => {
-        console.log(data);
         this.registerSuccessful = true;
         this.registerFailed = false;
       },
