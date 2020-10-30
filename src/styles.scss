@@ -234,7 +234,7 @@ svg:hover {
 .mat-radio-button {
   max-width: 100px !important;
   display: unset !important;
-  font-size: 2rem;
+  font-size: 1.5rem;
 }
 
 .mat-radio-label {
@@ -243,4 +243,26 @@ svg:hover {
 
 .mat-dialog-container {
   background-color: whitesmoke;
+}
+
+/*
+ * Tableau
+ */
+
+.mat-table {
+  width: 100%;
+}
+
+.mat-form-field {
+  font-size: 2rem;
+  text-align: center!important;
+  width: 100%;
+}
+
+.mat-form-field-appearance-fill .mat-form-field-infix {
+  color: $color-grey-dark-3;
+}
+
+.aled {
+  background-color: whitesmoke!important;
 }

@@ -1,7 +1,6 @@
 @import "../../Scss/abstracts/mixins";
 @import "../../Scss/abstracts/variables";
 
-
 .form {
   @include absCenter;
 
@@ -49,7 +48,7 @@
   }
 
   &__btn-submit {
-    background-color: $color-btn-edit;
+    //background-color: $color-btn-edit;
     color: $color-white;
     font-size: 1.5rem;
     font-weight: lighter;

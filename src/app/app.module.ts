@@ -44,6 +44,7 @@ import { MatRadioModule } from '@angular/material/radio';
 import { FormsModule } from '@angular/forms';
 import { ReportComponent } from './Pages/Users/Modals/report/report.component';
 import {MatCardModule} from '@angular/material/card';
+import {MatTableModule} from '@angular/material/table';
 
 
 @NgModule({
@@ -94,7 +95,8 @@ import {MatCardModule} from '@angular/material/card';
     MatDialogModule,
     MatRadioModule,
     FormsModule,
-    MatCardModule
+    MatCardModule,
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]
