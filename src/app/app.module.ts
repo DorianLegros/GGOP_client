@@ -45,6 +45,7 @@ import { FormsModule } from '@angular/forms';
 import { ReportComponent } from './Pages/Users/Modals/report/report.component';
 import {MatCardModule} from '@angular/material/card';
 import {MatTableModule} from '@angular/material/table';
+import { HistoricComponent } from './Pages/Users/Modals/historic/historic.component';
 
 
 @NgModule({
@@ -78,7 +79,8 @@ import {MatTableModule} from '@angular/material/table';
     UserProfileModificationComponent,
     NavigationComponent,
     HonorComponent,
-    ReportComponent
+    ReportComponent,
+    HistoricComponent
   ],
   imports: [
     BrowserModule,
