@@ -4,7 +4,7 @@ import {HonorComponent} from '../Modals/honor/honor.component';
 import {ReportComponent} from '../Modals/report/report.component';
 import {MatTableDataSource} from '@angular/material/table';
 
-export interface PeriodicElement {
+export interface MyTeam {
   name: string;
   position: number;
   leader: string;
@@ -12,8 +12,8 @@ export interface PeriodicElement {
 }
 
 
-const ELEMENT_DATA: PeriodicElement[] = [
-  {position: 1, name: 'Team Pax', leader: 'Domingo', membre: 5},
+const ELEMENT_DATA: MyTeam[] = [
+  {position: 1, name: 'My Team', leader: 'Domingo', membre: 5},
   {position: 2, name: 'Fnatic', leader: 'Charles', membre: 5},
   {position: 3, name: 'Cloud9', leader: 'Nuage neuf', membre: 4},
   {position: 4, name: 'Unicorn of Love', leader: 'Duonicorn', membre: 3},
