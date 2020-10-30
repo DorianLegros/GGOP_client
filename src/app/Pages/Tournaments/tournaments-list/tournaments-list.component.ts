@@ -3,44 +3,42 @@ import { MatTableDataSource } from '@angular/material/table';
 
 export interface ListTournaments {
   name: string;
-  position: number;
   leader: string;
   membre: number;
 }
 
 export interface MyTournaments {
   name: string;
-  position: number;
   leader: string;
   membre: number;
 }
 
 
 const ELEMENT_DATA_LISTE_TOURNAMENTS: ListTournaments[] = [
-  {position: 1, name: 'ListTournaments', leader: 'Domingo', membre: 5},
-  {position: 2, name: 'Fnatic', leader: 'Charles', membre: 5},
-  {position: 3, name: 'Cloud9', leader: 'Nuage neuf', membre: 4},
-  {position: 4, name: 'Unicorn of Love', leader: 'Duonicorn', membre: 3},
-  {position: 5, name: 'SKTT1', leader: 'Faker', membre: 5},
-  {position: 6, name: 'Gros chinois', leader: 'Faker', membre: 5},
-  {position: 7, name: 'Brother of texas', leader: 'Chuck Noris', membre: 5},
-  {position: 8, name: 'Pussycat dols', leader: 'Ariana Grand dé', membre: 4},
-  {position: 9, name: 'Team Skeat', leader: 'Jordi el ninio', membre: 5},
-  {position: 10, name: 'Taxi Driver', leader: 'Manu Payet', membre: 4},
+  {name: 'ListTournaments', leader: 'Domingo', membre: 5},
+  {name: 'Fnatic', leader: 'Charles', membre: 5},
+  {name: 'Cloud9', leader: 'Nuage neuf', membre: 4},
+  {name: 'Unicorn of Love', leader: 'Duonicorn', membre: 3},
+  {name: 'SKTT1', leader: 'Faker', membre: 5},
+  {name: 'Gros chinois', leader: 'Faker', membre: 5},
+  {name: 'Brother of texas', leader: 'Chuck Noris', membre: 5},
+  {name: 'Pussycat dols', leader: 'Ariana Grand dé', membre: 4},
+  {name: 'Team Skeat', leader: 'Jordi el ninio', membre: 5},
+  {name: 'Taxi Driver', leader: 'Manu Payet', membre: 4},
 ];
 
 
 const ELEMENT_DATA_MY_TOURNAMENTS: MyTournaments[] = [
-  {position: 1, name: 'MyTournaments', leader: 'Domingo', membre: 5},
-  {position: 2, name: 'Fnatic', leader: 'Charles', membre: 5},
-  {position: 3, name: 'Cloud9', leader: 'Nuage neuf', membre: 4},
-  {position: 4, name: 'Unicorn of Love', leader: 'Duonicorn', membre: 3},
-  {position: 5, name: 'SKTT1', leader: 'Faker', membre: 5},
-  {position: 6, name: 'Gros chinois', leader: 'Faker', membre: 5},
-  {position: 7, name: 'Brother of texas', leader: 'Chuck Noris', membre: 5},
-  {position: 8, name: 'Pussycat dols', leader: 'Ariana Grand dé', membre: 4},
-  {position: 9, name: 'Team Skeat', leader: 'Jordi el ninio', membre: 5},
-  {position: 10, name: 'Taxi Driver', leader: 'Manu Payet', membre: 4},
+  {name: 'MyTournaments', leader: 'Domingo', membre: 5},
+  {name: 'Fnatic', leader: 'Charles', membre: 5},
+  {name: 'Cloud9', leader: 'Nuage neuf', membre: 4},
+  {name: 'Unicorn of Love', leader: 'Duonicorn', membre: 3},
+  {name: 'SKTT1', leader: 'Faker', membre: 5},
+  {name: 'Gros chinois', leader: 'Faker', membre: 5},
+  {name: 'Brother of texas', leader: 'Chuck Noris', membre: 5},
+  {name: 'Pussycat dols', leader: 'Ariana Grand dé', membre: 4},
+  {name: 'Team Skeat', leader: 'Jordi el ninio', membre: 5},
+  {name: 'Taxi Driver', leader: 'Manu Payet', membre: 4},
 ];
 
 
@@ -51,10 +49,10 @@ const ELEMENT_DATA_MY_TOURNAMENTS: MyTournaments[] = [
 })
 export class TournamentsListComponent implements OnInit {
 
-  displayedColumnsListeTournaments: string[] = ['position', 'name', 'leader', 'membre'];
+  displayedColumnsListeTournaments: string[] = ['name', 'leader', 'membre'];
   dataSourceListeTournaments = new MatTableDataSource(ELEMENT_DATA_LISTE_TOURNAMENTS);
 
-  displayedColumnsMyTournaments: string[] = ['position', 'name', 'leader', 'membre'];
+  displayedColumnsMyTournaments: string[] = ['name', 'leader', 'membre'];
   dataSourceMyTournaments = new MatTableDataSource(ELEMENT_DATA_MY_TOURNAMENTS);
   constructor() { }
 
