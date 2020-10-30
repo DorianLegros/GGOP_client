@@ -1,15 +1,23 @@
 <div class="form">
   <h1>Connexion</h1>
-  <form action="">
+  <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
 
     <label for="email"></label>
-    <input type="text" id="email" placeholder="E-mail" class="form__type-input">
+    <input name="email" type="text" id="email" placeholder="Adresse email" required #email="ngModel" [(ngModel)]="loginInfos.email" class="form__type-input">
+    <div *ngIf="email.invalid && (email.touched)" class="alert alert-danger">
+      <div *ngIf="email.errors.required">Veuillez renseigner votre adresse email.</div>
+    </div>
 
     <label for="password"></label>
-    <input type="password" id="password" placeholder="Mot de passe" class="form__type-input">
+    <input name="password" type="password" id="password" placeholder="Mot de passe" required #password="ngModel" [(ngModel)]="loginInfos.password" class="form__type-input">
+    <div *ngIf="password.invalid && (password.touched)" class="alert alert-danger">
+      <div *ngIf="password.errors.required">Veuillez renseigner votre mot de passe.</div>
+    </div>
+
+    <div class="alert alert-danger" role="alert" *ngIf="f.submitted && loginFailed">Connexion échouée: {{ errorMessage }}</div>
+
+    <input type="submit" class="form__btn-submit" value="Connexion">
 
     <p>Pas encore de compte ? <a href="http://localhost:4200/inscription">Inscrivez-vous</a></p>
-
-    <input type="button" class="form__btn-submit" value="Commencer !">
   </form>
 </div>

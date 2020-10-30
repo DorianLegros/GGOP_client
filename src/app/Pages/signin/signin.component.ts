@@ -20,7 +20,6 @@ export class SigninComponent implements OnInit {
   ngOnInit(): void {}
 
   onSubmit() {
-    console.log(this.newUser);
     this.authService.register(this.newUser).subscribe(
       data => {
         this.registerSuccessful = true;
