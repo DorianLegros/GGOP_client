@@ -8,6 +8,7 @@ import {TeamsListComponent} from './Pages/Teams/teams-list/teams-list.component'
 import {TournamentsListComponent} from './Pages/Tournaments/tournaments-list/tournaments-list.component';
 import {MatchmakingsListComponent} from './Pages/Matchmakings/matchmakings-list/matchmakings-list.component';
 import {SettingsComponent} from './Pages/settings/settings.component';
+import {TournamentDetailsComponent} from './Pages/Tournaments/tournament-details/tournament-details.component';
 
 
 const routes: Routes = [
@@ -18,7 +19,8 @@ const routes: Routes = [
   {path: 'equipe', component: TeamsListComponent},
   {path: 'tournois', component: TournamentsListComponent},
   {path: 'matchmaking', component: MatchmakingsListComponent},
-  {path: 'reglage', component: SettingsComponent}
+  {path: 'reglage', component: SettingsComponent},
+  {path: 'tournois-details', component: TournamentDetailsComponent}
 ];
 
 @NgModule({

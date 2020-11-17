@@ -88,7 +88,7 @@
         <!-- Name Column -->
         <ng-container matColumnDef="name">
           <th mat-header-cell *matHeaderCellDef>Nom du tournoi</th>
-          <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+          <td mat-cell *matCellDef="let element"><a href="tournois-details">{{element.name}}</a></td>
         </ng-container>
 
         <!-- leader Column -->
@@ -98,9 +98,9 @@
         </ng-container>
 
         <!-- membre Column -->
-        <ng-container matColumnDef="membre">
-          <th mat-header-cell *matHeaderCellDef>Membres</th>
-          <td mat-cell *matCellDef="let element"> {{element.membre}} </td>
+        <ng-container matColumnDef="victory">
+          <th mat-header-cell *matHeaderCellDef>Vainqueur</th>
+          <td mat-cell *matCellDef="let element">{{element.victory}}</td>
         </ng-container>
 
         <tr mat-header-row *matHeaderRowDef="displayedColumnsMyTournaments"></tr>
