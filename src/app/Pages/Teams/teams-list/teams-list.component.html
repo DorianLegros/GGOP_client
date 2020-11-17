@@ -6,22 +6,6 @@
 <h1 class="title">Équipes</h1>
 
 <mat-tab-group mat-align-tabs="center">
-  <mat-tab label="Créer une équipe">
-
-    <div class="mat-tab--form">
-      <div class="form">
-        <form action="">
-
-          <label for="equipe" style="display: none"></label>
-          <input type="text" id="equipe" placeholder="Nom d'équipe" class="form__type-input">
-
-
-          <input type="button" class="form__btn-submit" value="Créer">
-        </form>
-      </div>
-    </div>
-
-  </mat-tab>
   <mat-tab label="Liste des équipes">
 
     <div class="tab-background">
@@ -63,6 +47,23 @@
           <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
         </tr>
       </table>
+    </div>
+
+  </mat-tab>
+
+  <mat-tab label="Créer une équipe">
+
+    <div class="mat-tab--form">
+      <div class="form">
+        <form action="">
+
+          <label for="equipe" style="display: none"></label>
+          <input type="text" id="equipe" placeholder="Nom d'équipe" class="form__type-input">
+
+
+          <input type="button" class="form__btn-submit" value="Créer">
+        </form>
+      </div>
     </div>
 
   </mat-tab>

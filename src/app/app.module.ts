@@ -47,6 +47,8 @@ import { MatCardModule } from '@angular/material/card';
 import { MatTableModule } from '@angular/material/table';
 import { HistoricComponent } from './Pages/Users/Modals/historic/historic.component';
 import { SettingsComponent } from './Pages/settings/settings.component';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { PrivacyComponent } from './Pages/settings/Modals/privacy/privacy.component';
 
 @NgModule({
   declarations: [
@@ -81,7 +83,8 @@ import { SettingsComponent } from './Pages/settings/settings.component';
     HonorComponent,
     ReportComponent,
     HistoricComponent,
-    SettingsComponent
+    SettingsComponent,
+    PrivacyComponent
   ],
   imports: [
     BrowserModule,
@@ -99,7 +102,8 @@ import { SettingsComponent } from './Pages/settings/settings.component';
     MatRadioModule,
     FormsModule,
     MatCardModule,
-    MatTableModule
+    MatTableModule,
+    MatSlideToggleModule
   ],
   providers: [],
   bootstrap: [AppComponent]

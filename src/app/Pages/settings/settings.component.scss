@@ -1,0 +1,42 @@
+@import "src/app/Scss/abstracts/variables";
+
+.settings {
+  max-width: 800px;
+  margin: 0 auto;
+
+  &__div {
+    background-color: $color-grey-dark-3;
+    &--txt,
+    &--toggle {
+      float: left;
+      width: 50%;
+      font-size: 2rem;
+      padding-left: 35px;
+      height: 100px;
+      line-height: 100px;
+      font-weight: bold;
+      border-bottom: solid 1px rgb(0,0,0,0.2);
+    }
+
+    &--txt-solo {
+      width: 100%;
+      font-size: 2rem;
+      padding-left: 35px;
+      height: 100px;
+      line-height: 100px;
+      font-weight: bold;
+      border-bottom: solid 1px rgb(0,0,0,0.2);
+      a{
+        color: whitesmoke;
+        text-decoration: none;
+        &:hover {
+          cursor: pointer;
+        }
+      }
+    }
+
+    &--toggle {
+      text-align: center;
+    }
+  }
+}
