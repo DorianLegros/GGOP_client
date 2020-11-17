@@ -3,6 +3,7 @@ import {MatDialog, MatDialogConfig} from '@angular/material/dialog';
 import {HonorComponent} from '../Modals/honor/honor.component';
 import {ReportComponent} from '../Modals/report/report.component';
 import {MatTableDataSource} from '@angular/material/table';
+import {HistoricComponent} from '../Modals/historic/historic.component';
 
 export interface MyTeam {
   name: string;
@@ -49,6 +50,15 @@ export class UserProfileComponent implements OnInit {
   openDialogReport() {
     const dialogConfig = new MatDialogConfig();
     this.dialog.open(ReportComponent, dialogConfig);
+  }
+
+  openDialogHistoric() {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.maxWidth = '95vw';
+    dialogConfig.width = '100%';
+    dialogConfig.autoFocus = true;
+    dialogConfig.hasBackdrop = true;
+    this.dialog.open(HistoricComponent, dialogConfig);
   }
 
   applyFilter(event: Event) {

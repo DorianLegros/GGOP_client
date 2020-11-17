@@ -43,10 +43,10 @@ import { HonorComponent } from './Pages/Users/Modals/honor/honor.component';
 import { MatRadioModule } from '@angular/material/radio';
 import { FormsModule } from '@angular/forms';
 import { ReportComponent } from './Pages/Users/Modals/report/report.component';
-import {MatCardModule} from '@angular/material/card';
-import {MatTableModule} from '@angular/material/table';
+import { MatCardModule } from '@angular/material/card';
+import { MatTableModule } from '@angular/material/table';
 import { HistoricComponent } from './Pages/Users/Modals/historic/historic.component';
-
+import { SettingsComponent } from './Pages/settings/settings.component';
 
 @NgModule({
   declarations: [
@@ -80,7 +80,8 @@ import { HistoricComponent } from './Pages/Users/Modals/historic/historic.compon
     NavigationComponent,
     HonorComponent,
     ReportComponent,
-    HistoricComponent
+    HistoricComponent,
+    SettingsComponent
   ],
   imports: [
     BrowserModule,

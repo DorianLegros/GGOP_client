@@ -6,6 +6,8 @@ import {SigninComponent} from './Pages/signin/signin.component';
 import {UserProfileComponent} from './Pages/Users/user-profile/user-profile.component';
 import {TeamsListComponent} from './Pages/Teams/teams-list/teams-list.component';
 import {TournamentsListComponent} from './Pages/Tournaments/tournaments-list/tournaments-list.component';
+import {MatchmakingsListComponent} from './Pages/Matchmakings/matchmakings-list/matchmakings-list.component';
+import {SettingsComponent} from './Pages/settings/settings.component';
 
 
 const routes: Routes = [
@@ -14,7 +16,9 @@ const routes: Routes = [
   {path: 'inscription', component: SigninComponent},
   {path: 'profil', component: UserProfileComponent},
   {path: 'equipe', component: TeamsListComponent},
-  {path: 'tournois', component: TournamentsListComponent}
+  {path: 'tournois', component: TournamentsListComponent},
+  {path: 'matchmaking', component: MatchmakingsListComponent},
+  {path: 'reglage', component: SettingsComponent}
 ];
 
 @NgModule({
