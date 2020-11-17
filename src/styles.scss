@@ -238,31 +238,53 @@ svg:hover {
 }
 
 .mat-radio-label {
-  margin: 10px 0!important;
+  margin: 10px 0 !important;
 }
 
 .mat-dialog-container {
-  background-color: whitesmoke;
+  background-color: $color-grey-light-2;
 }
 
 /*
  * Tableau
  */
 
+.table {
+  color: $color-grey-light-2;
+  &::placeholder {
+    color: $color-grey-light-2;
+  }
+}
+
 .mat-table {
   width: 100%;
+  background-color: $color-grey-dark-4 !important;
+
+  &tr, th, td {
+    color: $color-grey-light-2;
+  }
 }
 
 .mat-form-field {
   font-size: 2rem;
-  text-align: center!important;
+  text-align: center !important;
   width: 100%;
 }
 
 .mat-form-field-appearance-fill .mat-form-field-infix {
-  color: $color-grey-dark-3;
+  color: $color-grey-light-2;
+  font-weight: lighter;
 }
 
 .tab-background {
-  background-color: whitesmoke!important;
+  background-color: $color-grey-dark-4 !important;
+  color: $color-white !important;
+}
+
+/*
+ * Icon
+ */
+
+.icon {
+  color: $color-white;
 }

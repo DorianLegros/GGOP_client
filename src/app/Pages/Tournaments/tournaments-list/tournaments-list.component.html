@@ -10,9 +10,12 @@
 
     <div class="tab-background">
       <mat-form-field appearance="fill" color="primary">
-        <mat-label>Chercher par nom</mat-label>
+        <mat-label style="color: white">
+          <mat-icon aria-hidden="false" aria-label="Example home icon" class="icon">search</mat-icon>
+          Chercher par nom
+        </mat-label>
         <label>
-          <input matInput (keyup)="applyFilterListeTournaments($event)" placeholder="Ex. SKTT1" #input>
+          <input matInput (keyup)="applyFilterListeTournaments($event)" placeholder="Ex. SKTT1" #input class="table">
         </label>
       </mat-form-field>
 
@@ -71,9 +74,12 @@
 
     <div class="tab-background">
       <mat-form-field appearance="fill" color="primary">
-        <mat-label>Chercher par nom</mat-label>
+        <mat-label style="color: white">
+          <mat-icon aria-hidden="false" aria-label="Example home icon" class="icon">search</mat-icon>
+          Chercher par nom
+        </mat-label>
         <label>
-          <input matInput (keyup)="applyFilterMyTournaments($event)" placeholder="Ex. SKTT1" #input>
+          <input matInput (keyup)="applyFilterMyTournaments($event)" placeholder="Ex. SKTT1" #input class="table">
         </label>
       </mat-form-field>
 
