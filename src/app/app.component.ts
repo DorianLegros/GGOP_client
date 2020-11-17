@@ -26,8 +26,13 @@ export class AppComponent implements OnInit {
       this.isAdmin = this.roles.includes('ROLE_ADMIN');
 
       this.username = user.username;
+
+      // check admin if user want to go to an admin page
+
     } else {
-      this.router.navigate(['/connexion']);
+      if (window.location.pathname !== '/connexion' && window.location.pathname !== '/inscription') {
+        this.router.navigate(['/connexion']);
+      }
     }
   }
 

@@ -31,7 +31,7 @@
     </div>
 
     <label for="serveur-riot"></label>
-    <select name="serveur-riot" id="serveur-riot" [(ngModel)]="newUser.riot_server" required #riotServer="ngModel">
+    <select name="serveur-riot" id="serveur-riot" [(ngModel)]="newUser.riot_server_id" required #riotServer="ngModel">
       <option *ngFor="let riotServ of riotServersList" value="{{riotServ.id}}">{{riotServ.name}}</option>
     </select>
     <div *ngIf="riotServer.invalid && (riotServer.touched)" class="alert alert-danger">
@@ -42,7 +42,7 @@
     <label for="checkbox">I agree Private Policy</label>
 
     <div
-      class="alert alert-danger" role="alert" *ngIf="f.submitted && registerFailed"> Login failed: {{ errorMessage }}
+      class="alert alert-danger" role="alert" *ngIf="f.submitted && registerFailed"> Problème lors de la création de votre compte {{ errorMessage }}
     </div>
 
     <input *ngIf="policyAccepted && f.form.valid" type="submit" class="form__btn-submit" value="Valider">
