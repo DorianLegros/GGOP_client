@@ -23,7 +23,8 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit() {
-    this.authService.login(this.loginInfos).subscribe(
+    console.log(JSON.stringify(this.loginInfos));
+    this.authService.login(JSON.stringify(this.loginInfos)).subscribe(
       data => {
         this.tokenStorage.saveToken(data.accessToken);
         this.tokenStorage.saveUser(data);
