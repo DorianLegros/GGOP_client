@@ -1,0 +1,22 @@
+.clear:before, .clear:after {
+  content: '';
+  display: table;
+}
+
+.clear:after {
+  clear: both
+}
+
+.clear {
+  *zoom: 1;
+}
+
+.title {
+  text-align: center;
+  padding: 10px;
+  font-weight: lighter;
+}
+
+.disabled {
+  background-color: rgba(210,84,84,0.5);
+}

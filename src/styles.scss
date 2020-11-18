@@ -1,1 +1,229 @@
-/* You can add global styles to this file, and also import other style files */
+@import '~@angular/material/theming';
+
+@include mat-core();
+$client-primary: mat-palette($mat-light-blue);
+$client-accent: mat-palette($mat-green, A200, A100, A400);
+$client-warn: mat-palette($mat-red);
+$client-theme: mat-light-theme($client-primary, $client-accent, $client-warn);
+@include angular-material-theme($client-theme);
+
+@import "app/app.component";
+
+.fix-navigation {
+  height: 60px;
+}
+
+.loading {
+  @include absCenter;
+}
+
+svg:hover {
+  fill: #333333 !important;
+}
+
+.mat-checkbox-layout {
+  background-color: $color-grey-light-1 !important;
+  border-radius: 2px;
+}
+
+
+/*
+ * Mat tab group
+ */
+
+
+.mat-tab-group {
+  color: $color-white;
+}
+
+.mat-tab-label {
+  width: 33.333333333333333333333333333333333333333333333% !important;
+}
+
+.mat-tab-labels,
+.mat-tab {
+  background-color: $color-grey-dark-3 !important;
+}
+
+.mat-tab-label .mat-tab-label-content {
+  color: $color-white !important;
+}
+
+/*
+ * Profil
+ */
+
+.profil {
+  width: 100%;
+  background-color: #0E82CF;
+  position: relative;
+
+  h1 {
+    text-align: center;
+    height: 120px;
+    line-height: 120px;
+    width: 100%;
+    display: inline-block;
+  }
+
+  img {
+    position: absolute;
+    right: 0;
+    width: 120px;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .profil {
+    h1 {
+      width: 66.66666666666666666666666666%;
+    }
+  }
+}
+
+/*
+ * Profil details
+ */
+
+.detail-profil {
+  max-width: 800px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 10px 0;
+
+  img {
+    width: 33.3333333333333333333%;
+  }
+
+  .picture {
+    width: 50%;
+    float: left;
+    text-align: center;
+
+    img {
+      height: 120px;
+      width: 120px;
+    }
+
+    .badges {
+      width: 100%;
+
+      &__img {
+        width: 33.3333333333333333%;
+        display: inline-block;
+
+        img {
+          width: 50px;
+          height: 50px;
+        }
+      }
+    }
+  }
+
+  .infos-profil {
+    width: 50%;
+    float: left;
+    text-align: center;
+    line-height: 45px;
+  }
+}
+
+/*
+ * Historique card
+ */
+
+.historique-card {
+  //background-color: $color-defeat;
+  //border: 1px solid $color-defeat-2;
+  max-width: 800px;
+  margin: 4px auto;
+  padding: 10px;
+  color: $color-grey-dark-3;
+  font-size: 1.4rem;
+
+  .champion,
+  .items,
+  .score-detail {
+    width: 33.333333333333333333333%;
+    height: 120px;
+    text-align: center;
+    float: left;
+    position: relative;
+
+    .abscenter {
+      width: 100%;
+      @include absCenter;
+    }
+
+    .summoners,
+    .runes {
+      display: inline-block;
+      margin-left: 10px;
+
+      img {
+        display: block;
+      }
+    }
+
+    img {
+      display: inline-block;
+      margin-left: 5px;
+      border-radius: 2px;
+    }
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .historique-card {
+    margin: 4px;
+  }
+}
+
+/*
+ * Informations
+ */
+
+.report {
+  padding: 20px;
+  max-width: 300px;
+  margin: 0 auto;
+  height: 100px;
+
+  &__img,
+  &__txt {
+    width: 50%;
+    float: left;
+    text-align: center;
+
+    img {
+      width: 33.33%;
+    }
+
+    a {
+      line-height: 45px;
+      font-size: 1.5rem;
+      font-weight: lighter;
+      text-decoration: none;
+      color: $color-white;
+
+      &:hover {
+        color: $color-neutral;
+        @include transition;
+      }
+    }
+  }
+}
+
+/*
+ * Modal Radio
+ */
+
+.mat-radio-button {
+  max-width: 100px!important;
+  margin: 0 auto;
+  display: unset!important;
+  font-size: 2rem;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
