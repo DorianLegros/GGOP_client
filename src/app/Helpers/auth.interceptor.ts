@@ -4,6 +4,7 @@ import { HttpInterceptor, HttpHandler, HttpRequest } from '@angular/common/http'
 
 import { TokenStorageService } from '../Services/token-storage.service';
 import { Observable } from 'rxjs';
+import {environment} from '../../environments/environment';
 
 const TOKEN_HEADER_KEY = 'Authorization';
 
@@ -13,10 +14,10 @@ export class AuthInterceptor implements HttpInterceptor {
   }
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    let authReq = req;
+    let authReq = req.clone({url: environment.apiUrl + req.url});
     const token = this.tokenStorage.getToken();
     if (token != null) {
-      authReq = req.clone({ headers: req.headers.set(TOKEN_HEADER_KEY, 'Bearer ' + token) });
+      authReq = req.clone({headers: req.headers.set(TOKEN_HEADER_KEY, 'Bearer ' + token), url: environment.apiUrl + req.url});
     }
     return next.handle(authReq);
   }

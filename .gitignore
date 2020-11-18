@@ -4,6 +4,7 @@
 
 ### Personnal addings ###
 .env
+!/src/environments/
 
 ### Angular ###
 ## Angular ##
