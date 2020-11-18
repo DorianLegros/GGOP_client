@@ -1,6 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+
 import { AppRoutingModule } from './app-routing.module';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+
 import { AppComponent } from './app.component';
 import { LoginComponent } from './Pages/login/login.component';
 import { LandingComponent } from './Pages/landing/landing.component';
@@ -29,7 +33,14 @@ import { UserProfileTeamsComponent } from './Pages/Users/user-profile-teams/user
 import { UserProfileHistoryDetailsComponent } from './Pages/Users/user-profile-history-details/user-profile-history-details.component';
 import { UserProfileModificationComponent } from './Pages/Users/user-profile-modification/user-profile-modification.component';
 import { NavigationComponent } from './Pages/navigation/navigation.component';
+import { HonorComponent } from './Pages/Users/Modals/honor/honor.component';
+import { ReportComponent } from './Pages/Users/Modals/report/report.component';
+import { PrivacyComponent } from './Pages/settings/Modals/privacy/privacy.component';
+import { HistoricComponent } from './Pages/Users/Modals/historic/historic.component';
+import { SettingsComponent } from './Pages/settings/settings.component';
+
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 import { MatButtonModule } from '@angular/material/button';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -39,16 +50,13 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatDialogModule } from '@angular/material/dialog';
-import { HonorComponent } from './Pages/Users/Modals/honor/honor.component';
 import { MatRadioModule } from '@angular/material/radio';
 import { FormsModule } from '@angular/forms';
-import { ReportComponent } from './Pages/Users/Modals/report/report.component';
 import { MatCardModule } from '@angular/material/card';
 import { MatTableModule } from '@angular/material/table';
-import { HistoricComponent } from './Pages/Users/Modals/historic/historic.component';
-import { SettingsComponent } from './Pages/settings/settings.component';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
-import { PrivacyComponent } from './Pages/settings/Modals/privacy/privacy.component';
+
+import { authInterceptorProviders } from './Helpers/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -103,9 +111,10 @@ import { PrivacyComponent } from './Pages/settings/Modals/privacy/privacy.compon
     FormsModule,
     MatCardModule,
     MatTableModule,
-    MatSlideToggleModule
+    MatSlideToggleModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [authInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
