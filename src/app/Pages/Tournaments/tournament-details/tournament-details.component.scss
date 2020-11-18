@@ -1,0 +1,33 @@
+@import "src/app/Scss/abstracts/variables";
+
+.tournament {
+
+  a {
+    text-decoration: none;
+    color: $color-white;
+    padding: 10px;
+  }
+
+  &__versus {
+    background-color: $color-grey-dark-3;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    padding: 15px;
+
+    &--team1,
+    &--vs,
+    &--team2 {
+      float: left;
+      width: 33.33333333333333333333333333%;
+      text-align: center;
+      font-size: 1.5rem;
+    }
+
+    &--victory {
+      width: 100%;
+      text-align: center;
+      color: $color-victory;
+      font-size: 1.5rem;
+      margin-top: 15px;
+    }
+  }
+}

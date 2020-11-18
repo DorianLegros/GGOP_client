@@ -1,0 +1,40 @@
+<div class="profil">
+  <h1>Bonjour, invocateur ! </h1>
+  <a href="/profil"><img src="assets/images/logo/profil.png" alt="Profil picture"></a>
+</div>
+
+<h1 class="title">Paramètres</h1>
+
+<div class="settings">
+
+  <div class="settings__div">
+
+    <div class="settings__div--txt">Notifications</div>
+    <div class="settings__div--toggle">
+      <mat-slide-toggle></mat-slide-toggle>
+    </div>
+    <div class="clear"></div>
+
+
+    <div class="settings__div--txt">Profil en privée</div>
+    <div class="settings__div--toggle">
+      <mat-slide-toggle></mat-slide-toggle>
+    </div>
+    <div class="clear"></div>
+
+    <div class="settings__div--txt-solo">
+      <a class="settings__div--txt--btn" href="/connexion">Se déconnecter</a>
+    </div>
+
+    <div class="settings__div--txt-solo">
+      <a (click)="openDialogPrivacy()" class="settings__div--txt--btn">Politique de confidentialité</a>
+    </div>
+
+    <div class="settings__div--txt-solo">
+      <a class="settings__div--txt--btn">Nous contacter</a>
+    </div>
+
+  </div>
+
+
+</div>

@@ -3,7 +3,7 @@
 @include mat-core();
 $client-primary: mat-palette($mat-light-blue);
 $client-accent: mat-palette($mat-green, A200, A100, A400);
-$client-warn: mat-palette($mat-red);
+$client-warn: mat-palette($mat-red, A100);
 $client-theme: mat-light-theme($client-primary, $client-accent, $client-warn);
 @include angular-material-theme($client-theme);
 
@@ -218,12 +218,73 @@ svg:hover {
  * Modal Radio
  */
 
-.mat-radio-button {
-  max-width: 100px!important;
-  margin: 0 auto;
-  display: unset!important;
-  font-size: 2rem;
+.modal {
+
+  &__btn {
+    width: 100%;
+    padding: 10px !important;
+    color: $color-white !important;
+  }
+
+  img {
+    margin-right: 10px;
+  }
 }
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.mat-radio-button {
+  max-width: 100px !important;
+  display: unset !important;
+  font-size: 1.5rem;
+}
+
+.mat-radio-label {
+  margin: 10px 0 !important;
+}
+
+.mat-dialog-container {
+  background-color: $color-grey-light-2;
+}
+
+/*
+ * Tableau
+ */
+
+.table {
+  color: $color-grey-light-2;
+  &::placeholder {
+    color: $color-grey-light-2;
+  }
+}
+
+.mat-table {
+  width: 100%;
+  background-color: $color-grey-dark-4 !important;
+
+  &tr, th, td {
+    color: $color-grey-light-2;
+  }
+}
+
+.mat-form-field {
+  font-size: 2rem;
+  text-align: center !important;
+  width: 100%;
+}
+
+.mat-form-field-appearance-fill .mat-form-field-infix {
+  color: $color-grey-light-2;
+  font-weight: lighter;
+}
+
+.tab-background {
+  background-color: $color-grey-dark-4 !important;
+  color: $color-white !important;
+}
+
+/*
+ * Icon
+ */
+
+.icon {
+  color: $color-white;
+}

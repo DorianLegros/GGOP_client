@@ -1,9 +1,14 @@
-<label id="example-radio-group-label"></label>
-<mat-radio-group
-  aria-labelledby="example-radio-group-label"
-  class="example-radio-group"
-  [(ngModel)]="favoriteReport">
-  <mat-radio-button class="example-radio-button" *ngFor="let report of reports" [value]="report" color="primary">
-    {{report}}
-  </mat-radio-button>
-</mat-radio-group>
+<div class="modal">
+  <label id="example-radio-group-label"></label>
+  <mat-radio-group
+    aria-labelledby="example-radio-group-label"
+    class="example-radio-group"
+    [(ngModel)]="favoriteReport">
+    <mat-radio-button class="example-radio-button" *ngFor="let report of reports" [value]="report" color="primary">
+      {{report}}
+    </mat-radio-button>
+    <button mat-raised-button color="warn" class="modal__btn">
+      <img src="assets/images/icons/report.svg" alt="Report icon">Report ce joueur
+    </button>
+  </mat-radio-group>
+</div>

@@ -13,8 +13,13 @@
 
 .title {
   text-align: center;
-  padding: 10px;
+  padding: 30px;
   font-weight: lighter;
+  font-size: xx-large;
+}
+
+.disabled {
+  background-color: rgba(210,84,84,0.5);
 }
 
 .disabled {

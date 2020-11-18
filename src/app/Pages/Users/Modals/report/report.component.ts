@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class ReportComponent implements OnInit {
 
   favoriteReport: string;
-  reports: string[] = ['Bannez', 'Moi', 'Ça'];
+  reports: string[] = ['Feeding intentionnel', 'Discriminations et offenses', 'AFK'];
   constructor() { }
 
   ngOnInit(): void {
