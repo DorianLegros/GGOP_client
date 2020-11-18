@@ -4,7 +4,6 @@ import {HonorComponent} from '../Modals/honor/honor.component';
 import {ReportComponent} from '../Modals/report/report.component';
 import {MatTableDataSource} from '@angular/material/table';
 import {HistoricComponent} from '../Modals/historic/historic.component';
-import {TokenStorageService} from '../../../Services/token-storage.service';
 
 export interface MyTeam {
   name: string;
@@ -32,16 +31,13 @@ const ELEMENT_DATA: MyTeam[] = [
   styleUrls: ['./user-profile.component.scss']
 })
 export class UserProfileComponent implements OnInit {
-  username: string;
 
-  constructor(private dialog: MatDialog, private tokenStorage: TokenStorageService) { }
+  constructor(private dialog: MatDialog) { }
 
   displayedColumns: string[] = ['name', 'leader', 'membre'];
   dataSource = new MatTableDataSource(ELEMENT_DATA);
 
   ngOnInit(): void {
-    const sessionUser = this.tokenStorage.getUser();
-    this.username = sessionUser.username;
   }
 
   openDialogHonor() {

@@ -56,6 +56,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 import { authInterceptorProviders } from './Helpers/auth.interceptor';
+import { HeaderComponent } from './Pages/header/header.component';
 
 @NgModule({
   declarations: [
@@ -91,7 +92,8 @@ import { authInterceptorProviders } from './Helpers/auth.interceptor';
     ReportComponent,
     HistoricComponent,
     SettingsComponent,
-    PrivacyComponent
+    PrivacyComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,

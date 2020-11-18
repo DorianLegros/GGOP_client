@@ -1,5 +1,7 @@
-<a *ngIf="isLoggedIn" href (click)="logout()">Déconnexion</a>
+<app-header *ngIf="isLoggedIn"></app-header>
+
 <router-outlet></router-outlet>
-<app-navigation></app-navigation>
+
+<app-navigation *ngIf="isLoggedIn"></app-navigation>
 
 <div class="fix-navigation"></div>
