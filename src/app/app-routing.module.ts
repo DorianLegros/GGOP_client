@@ -9,6 +9,8 @@ import {TournamentsListComponent} from './Pages/Tournaments/tournaments-list/tou
 import {MatchmakingsListComponent} from './Pages/Matchmakings/matchmakings-list/matchmakings-list.component';
 import {SettingsComponent} from './Pages/settings/settings.component';
 import {TournamentDetailsComponent} from './Pages/Tournaments/tournament-details/tournament-details.component';
+import {TournamentSummaryComponent} from './Pages/Tournaments/tournament-summary/tournament-summary.component';
+import {UserProfileHistoryDetailsComponent} from './Pages/Users/user-profile-history-details/user-profile-history-details.component';
 
 
 const routes: Routes = [
@@ -20,7 +22,9 @@ const routes: Routes = [
   {path: 'tournois', component: TournamentsListComponent},
   {path: 'matchmaking', component: MatchmakingsListComponent},
   {path: 'reglage', component: SettingsComponent},
-  {path: 'tournois-details', component: TournamentDetailsComponent}
+  {path: 'tournois-details', component: TournamentDetailsComponent},
+  {path: 'tournois-resume', component: TournamentSummaryComponent},
+  {path: 'historique-resume', component: UserProfileHistoryDetailsComponent}
 ];
 
 @NgModule({

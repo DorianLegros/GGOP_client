@@ -1,6 +1,8 @@
 @import "src/app/Scss/abstracts/variables";
 
 .tournament {
+  max-width: 800px;
+  margin: 0 auto;
 
   a {
     text-decoration: none;

@@ -256,6 +256,16 @@ svg:hover {
   }
 }
 
+.table-a {
+  text-decoration: none;
+  color: $color-btn-edit;
+
+  &:hover {
+    color: $color-btn-edit;
+    @include transition;
+  }
+}
+
 .mat-table {
   width: 100%;
   background-color: $color-grey-dark-4 !important;
@@ -281,10 +291,46 @@ svg:hover {
   color: $color-white !important;
 }
 
+
+//.mat-form-field-appearance-fill .mat-form-field-flex {
+//  background-color: $color-white!important;
+//  margin-top: 20px;
+//}
+
 /*
  * Icon
  */
 
 .icon {
   color: $color-white;
+}
+
+/*
+ * Alert forms
+ */
+
+.alert {
+  display: inline-block;
+}
+/*
+ * Summary
+ */
+
+.summary {
+  padding: 10px 0;
+  text-align: center;
+  background-color: $color-grey-dark-3;
+}
+
+.summary-a {
+  text-decoration: none;
+  color: $color-black;
+}
+
+.arrow-back {
+  width: 50px;
+  margin-left: 10px;
+  img {
+    width: 100%;
+  }
 }

@@ -2,6 +2,7 @@
 @import "../../Scss/abstracts/variables";
 
 .form {
+  width: 33%;
   @include absCenter;
 
   h1 {
@@ -53,6 +54,7 @@
     font-size: 1.5rem;
     font-weight: lighter;
     width: 100%;
+    margin-top: 10px;
 
     &:hover {
       background-color: $color-btn-edit-hover;
