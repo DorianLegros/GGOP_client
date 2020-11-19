@@ -10,10 +10,10 @@ export class UserProfileService {
   constructor(private httpClient: HttpClient) { }
 
   getAllUsersProfile(): Observable<any> {
-    return this.httpClient.get('');
+    return this.httpClient.get('userProfil');
   }
 
   getUserProfileById(userId): Observable<any> {
-    return this.httpClient.get('');
+    return this.httpClient.get('userProfil/' + userId);
   }
 }
