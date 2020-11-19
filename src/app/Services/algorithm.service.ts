@@ -147,8 +147,16 @@ export class AlgorithmService {
     });
 
     // if global score is greater or equal to 3, targeted user is placed in the compatible players list
+    const compatibleTargetsList = [];
+    targetsListWithScore.forEach((target) => {
+      console.log(target.globalScore);
+      if (target.globalScore <= 3) {
+        compatibleTargetsList.push(target.target);
+      }
+    });
 
     // return list of compatible players
+    return compatibleTargetsList;
   }
 
   getPlayerPrincipalPlayHourFromGameHistory(user: UserProfile) {
