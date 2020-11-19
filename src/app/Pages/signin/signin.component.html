@@ -2,7 +2,6 @@
   <h1>Inscription</h1>
 
   <form *ngIf="!registerSuccessful" name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
-    <label for="email"></label>
     <input name="email" type="text" id="email" [(ngModel)]="newUser.email" maxlength="180" required email #email="ngModel" placeholder="Adresse email" class="form__type-input">
     <div *ngIf="email.invalid && (email.touched)" class="alert alert-danger">
       <div class="form--error" *ngIf="email.errors.email">Cette adresse mail n'est pas valide.</div>
