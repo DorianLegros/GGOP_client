@@ -50,13 +50,16 @@
 
     <div class="mat-tab--form">
       <div class="form">
-        <form action="">
+        <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
 
           <label for="equipe" style="display: none"></label>
-          <input type="text" id="equipe" placeholder="Nom d'équipe" class="form__type-input">
+          <input type="text" name="equipe" id="equipe" placeholder="Nom d'équipe" [(ngModel)]="newTeam.name" required #name="ngModel" class="form__type-input">
+          <div *ngIf="name.invalid && (name.touched)" class="alert alert-danger">
+            <div class="form--error" *ngIf="name.errors.required">Un nom doit être renseigné.</div>
+          </div>
 
-
-          <input type="button" class="form__btn-submit" value="Créer">
+          <input *ngIf="f.form.valid" type="submit" class="form__btn-submit" value="Créer">
+          <input *ngIf="!f.form.valid" type="submit" disabled class="form__btn-submit disabled" value="Créer">
         </form>
       </div>
     </div>
