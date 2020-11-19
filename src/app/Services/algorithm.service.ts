@@ -80,11 +80,71 @@ export class AlgorithmService {
       // get KDA rate and winrate
       const algoTargetKDAAverage = this.getKDARateFromGameList(targetInfos.userId, algoTargetPrincipalGamesList);
       const algoTargetWinRate = this.getWinRateFromGamesList(algoTargetPrincipalGamesList);
+
+
+      // make comparisons between player infos and targeted user to define a score for each score
+      /* comparison for play level score */
+      const algoPlayerKDAAverages = algoPlayerKDAAverage.split(':');
+      const algoTargetKDAAverages = algoTargetKDAAverage.split(':');
+      // if for the rank
+
+      // @ts-ignore
+      const killsAverageDifference = Math.abs(algoTargetKDAAverages[0] - algoPlayerKDAAverages[0]);
+      // @ts-ignore
+      const deathsAverageDifference = Math.abs(algoPlayerKDAAverages[1] - algoTargetKDAAverages[1]);
+
+      if (killsAverageDifference < 5 && deathsAverageDifference < 5) {
+        target.playLevelScore += 2;
+      } else if ((killsAverageDifference > 8 && killsAverageDifference < 10) &&
+        (deathsAverageDifference > 8 && deathsAverageDifference < 10)) {
+        target.playLevelScore += 1;
+      }
+
+      const winRateDifference = Math.abs(algoTargetWinRate - algoPlayerWinRate);
+      if (winRateDifference < 10) {
+        target.playLevelScore += 3;
+      } else if (winRateDifference > 10 && winRateDifference < 20) {
+        target.playLevelScore += 2;
+      } else if (winRateDifference > 20 && winRateDifference < 30) {
+        target.playLevelScore += 1;
+      }
+
+      /* comparison for fair play score */
+      const reputationRatioDifference = Math.abs(algoPlayerReputationRatio - algoTargetReputationRatio);
+      if (reputationRatioDifference < 0.1) {
+        target.fairPlayScore += 5;
+      } else if (reputationRatioDifference > 0.1 && reputationRatioDifference < 0.2) {
+        target.fairPlayScore += 4;
+      } else if (reputationRatioDifference > 0.2 && reputationRatioDifference < 0.3) {
+        target.fairPlayScore += 3;
+      } else if (reputationRatioDifference > 0.3 && reputationRatioDifference < 0.4) {
+        target.fairPlayScore += 2;
+      } else if (reputationRatioDifference > 0.4 && reputationRatioDifference < 0.5) {
+        target.fairPlayScore += 1;
+      }
+
+      /* comparison for compatibility score */
+      if (algoPlayerMainChampion !== algoTargetMainChampion) { target.compatibilityScore += 1; }
+      if (algoPlayerPlayHour === algoTargetPlayHour) {
+        target.compatibilityScore += 3;
+      } else if (Math.abs(algoPlayerPlayHour - algoTargetPlayHour) <= 2) {
+        target.compatibilityScore += 1;
+      }
+      // if for the lane
+
+      // define global score
+      const scoresArray = [];
+      if (algoPlayLevelScoreActive) {
+        scoresArray.push(target.playLevelScore);
+      }
+      if (algoFairPlayScoreActive) {
+        scoresArray.push(target.fairPlayScore);
+      }
+      if (algoCompatibilityScoreActive) {
+        scoresArray.push(target.compatibilityScore);
+      }
+      target.globalScore = this.getAverage(scoresArray);
     });
-
-    // make comparisons between player infos and targeted user to define a score for each score
-
-    // define global score
 
     // if global score is greater or equal to 3, targeted user is placed in the compatible players list
 
