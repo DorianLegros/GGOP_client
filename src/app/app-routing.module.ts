@@ -13,6 +13,7 @@ import {TournamentSummaryComponent} from './Pages/Tournaments/tournament-summary
 import {UserProfileHistoryDetailsComponent} from './Pages/Users/user-profile-history-details/user-profile-history-details.component';
 import {MatchmakingDetailsComponent} from './Pages/Matchmakings/matchmaking-details/matchmaking-details.component';
 import {MatchmakingsMyListComponent} from './Pages/Matchmakings/matchmakings-my-list/matchmakings-my-list.component';
+import {TeamDetailsComponent} from './Pages/Teams/team-details/team-details.component';
 
 
 const routes: Routes = [
@@ -28,7 +29,8 @@ const routes: Routes = [
   {path: 'tournois-resume', component: TournamentSummaryComponent},
   {path: 'historique-resume', component: UserProfileHistoryDetailsComponent},
   {path: 'matchmaking-details', component: MatchmakingDetailsComponent},
-  {path: 'matchmaking-resume', component: MatchmakingsMyListComponent}
+  {path: 'matchmaking-resume', component: MatchmakingsMyListComponent},
+  {path: 'team-details', component: TeamDetailsComponent}
 ];
 
 @NgModule({

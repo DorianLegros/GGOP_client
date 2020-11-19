@@ -14,11 +14,11 @@ export interface MyTeam {
 
 
 const ELEMENT_DATA: MyTeam[] = [
-  {name: 'My Team', leader: 'Domingo', membre: 5},
-  {name: 'Fnatic', leader: 'Charles', membre: 5},
-  {name: 'Cloud9', leader: 'Nuage neuf', membre: 4},
-  {name: 'Unicorn of Love', leader: 'Duonicorn', membre: 3},
-  {name: 'SKTT1', leader: 'Faker', membre: 5},
+  {name: 'My Team', leader: 'Rayleigh', membre: 5},
+  {name: 'My Second Team', leader: 'TooFat4You', membre: 5},
+  {name: 'My Third Team', leader: 'Druxys', membre: 4},
+  {name: 'Another One', leader: 'DoRaideN', membre: 3},
+  {name: 'Ones More', leader: 'High Noon McCree', membre: 5},
 ];
 
 @Component({
