@@ -1,1 +1,239 @@
-<p>user-profile-teams works!</p>
+<div class="detail-profil">
+
+  <div class="picture">
+    <img src="assets/images/logo/profil.png" alt="Profil picture">
+    <div class="badges">
+      <div class="badges__img"><img src="assets/images/icons/gg.png" alt="Badge"></div>
+      <div class="badges__img"><img src="assets/images/icons/keep-cool.png" alt="Badge"></div>
+      <div class="badges__img"><img src="assets/images/icons/shotcalling.png" alt="Badge"></div>
+    </div>
+  </div>
+
+  <div class="infos-profil">
+    <h1>Druxys</h1>
+    <h2>Rank : Bronze IV</h2>
+    <h2>Main role(s) : Support</h2>
+    <h2>Taux de victoire : 51%</h2>
+  </div>
+
+  <div class="clear"></div>
+
+</div>
+
+<mat-tab-group mat-align-tabs="start" color="primary">
+  <mat-tab label="Informations">
+
+    <div class="historique-card" style="background-color: #84A7E2; border: 1px solid #3E4CCA;">
+      <div class="champion">
+        <div class="abscenter"><img src="assets/images/card/Janna.png" alt="Champion"></div>
+      </div>
+
+      <div class="items">
+        <div class="abscenter"><h3> 2.5 / 3.5 / 6.5 </h3></div>
+      </div>
+
+      <div class="score-detail">
+        <div class="abscenter"><h3>50%</h3>
+          <h3>6.60:1 KDA</h3>
+          <h3>42 (2.1) CS</h3></div>
+      </div>
+
+      <div class="clear"></div>
+
+    </div>
+    <div class="historique-card" style="background-color: #84A7E2; border: 1px solid #3E4CCA;">
+      <div class="champion">
+        <div class="abscenter"><img src="assets/images/card/Soraka.png" alt="Champion"></div>
+      </div>
+
+      <div class="items">
+        <div class="abscenter"><h3> 2.5 / 3.5 / 6.5 </h3></div>
+      </div>
+
+      <div class="score-detail">
+        <div class="abscenter"><h3>50%</h3>
+          <h3>6.60:1 KDA</h3>
+          <h3>42 (2.1) CS</h3></div>
+      </div>
+
+      <div class="clear"></div>
+
+    </div>
+    <div class="historique-card" style="background-color: #84A7E2; border: 1px solid #3E4CCA;">
+      <div class="champion">
+        <div class="abscenter"><img src="assets/images/card/Pyke.png" alt="Champion"></div>
+      </div>
+
+      <div class="items">
+        <div class="abscenter"><h3> 2.5 / 3.5 / 6.5 </h3></div>
+      </div>
+
+      <div class="score-detail">
+        <div class="abscenter"><h3>50%</h3>
+          <h3>6.60:1 KDA</h3>
+          <h3>42 (2.1) CS</h3></div>
+      </div>
+
+      <div class="clear"></div>
+
+    </div>
+
+    <h1 class="title">Avez-vous une appréciation sur ce joueur ?</h1>
+
+    <div class="report">
+      <div class="report__img"><img src="assets/images/icons/honor.svg" alt="Honor"></div>
+      <div class="report__txt"><button mat-button (click)="openDialogHonor()">Honorer ce joueur</button></div>
+      <div class="clear"></div>
+    </div>
+    <div class="report">
+      <div class="report__img"><img src="assets/images/icons/report.svg" alt="Report"></div>
+      <div class="report__txt"><button mat-button (click)="openDialogReport()">Report ce joueur</button></div>
+      <div class="clear"></div>
+    </div>
+
+
+  </mat-tab>
+
+  <mat-tab label="Historique">
+
+    <div class="historique-card" style="background-color: #E2B6B3; border: 1px solid #CA443E;">
+      <div class="champion">
+        <div class="abscenter"><img src="assets/images/card/Soraka.png" alt="Champion">
+          <div class="summoners"><img src="assets/images/card/SummonerExhaust.png" alt="Summoner"><img src="assets/images/card/SummonerFlash.png" alt="Summoner"></div>
+          <div class="runes"><img src="assets/images/card/8010.png" alt="Runes"><img src="assets/images/card/8100.png" alt="Runes"></div></div>
+      </div>
+
+      <div class="items">
+        <div class="abscenter"><h3>3 / 7 / 12</h3>
+          <img class="items__item" src="assets/images/card/3065.png" alt="item">
+          <img class="items__item" src="assets/images/card/3068.png" alt="item">
+          <img class="items__item" src="assets/images/card/3075.png" alt="item">
+          <img class="items__item" src="assets/images/card/3078.png" alt="item">
+          <img class="items__item" src="assets/images/card/3111.png" alt="item">
+          <img class="items__item" src="assets/images/card/3812.png" alt="item">
+          <img class="items__item" src="assets/images/card/3340.png" alt="item"></div>
+      </div>
+
+      <div class="score-detail">
+        <div class="abscenter"><h3>20:19</h3>
+          <h3>6.60:1 KDA</h3>
+          <h3>42 (2.1) CS</h3>
+          <h3 style="color: #CA443E">Défaite</h3></div>
+      </div>
+
+      <!--      <button mat-button (click)="openDialogHistoric()">Détails de la partie</button>-->
+      <a href="historique-resume" class="summary-a">Détails de la partie</a>
+
+      <div class="clear"></div>
+
+    </div>
+    <div class="historique-card" style="background-color: #C2E2B3; border: 1px solid #71CA3E;">
+      <div class="champion">
+        <div class="abscenter"><img src="assets/images/card/Janna.png" alt="Champion">
+          <div class="summoners"><img src="assets/images/card/SummonerExhaust.png" alt="Summoner"><img src="assets/images/card/SummonerFlash.png" alt="Summoner"></div>
+          <div class="runes"><img src="assets/images/card/8010.png" alt="Runes"><img src="assets/images/card/8100.png" alt="Runes"></div></div>
+      </div>
+
+      <div class="items">
+        <div class="abscenter"><h3>8 / 5 / 25</h3>
+          <img class="items__item" src="assets/images/card/3065.png" alt="item">
+          <img class="items__item" src="assets/images/card/3068.png" alt="item">
+          <img class="items__item" src="assets/images/card/3075.png" alt="item">
+          <img class="items__item" src="assets/images/card/3078.png" alt="item">
+          <img class="items__item" src="assets/images/card/3111.png" alt="item">
+          <img class="items__item" src="assets/images/card/3812.png" alt="item">
+          <img class="items__item" src="assets/images/card/3340.png" alt="item"></div>
+      </div>
+
+      <div class="score-detail">
+        <div class="abscenter"><h3>20:19</h3>
+          <h3>6.60:1 KDA</h3>
+          <h3>42 (2.1) CS</h3>
+          <h3 style="color: #71CA3E">Victoire</h3></div>
+      </div>
+
+      <!--      <button mat-button (click)="openDialogHistoric()">Détails de la partie</button>-->
+      <a href="historique-resume" class="summary-a">Détails de la partie</a>
+
+      <div class="clear"></div>
+
+    </div>
+    <div class="historique-card" style="background-color: #E2B6B3; border: 1px solid #CA443E;">
+      <div class="champion">
+        <div class="abscenter"><img src="assets/images/card/Taric.png" alt="Champion">
+          <div class="summoners"><img src="assets/images/card/SummonerExhaust.png" alt="Summoner"><img src="assets/images/card/SummonerFlash.png" alt="Summoner"></div>
+          <div class="runes"><img src="assets/images/card/8010.png" alt="Runes"><img src="assets/images/card/8100.png" alt="Runes"></div></div>
+      </div>
+
+      <div class="items">
+        <div class="abscenter"><h3>1 / 2 / 14</h3>
+          <img class="items__item" src="assets/images/card/3065.png" alt="item">
+          <img class="items__item" src="assets/images/card/3068.png" alt="item">
+          <img class="items__item" src="assets/images/card/3075.png" alt="item">
+          <img class="items__item" src="assets/images/card/3078.png" alt="item">
+          <img class="items__item" src="assets/images/card/3111.png" alt="item">
+          <img class="items__item" src="assets/images/card/3812.png" alt="item">
+          <img class="items__item" src="assets/images/card/3340.png" alt="item"></div>
+      </div>
+
+      <div class="score-detail">
+        <div class="abscenter"><h3>20:19</h3>
+          <h3>6.60:1 KDA</h3>
+          <h3>42 (2.1) CS</h3>
+          <h3 style="color: #CA443E">Défaite</h3></div>
+      </div>
+
+      <!--      <button mat-button (click)="openDialogHistoric()">Détails de la partie</button>-->
+      <a href="historique-resume" class="summary-a">Détails de la partie</a>
+
+      <div class="clear"></div>
+
+    </div>
+
+  </mat-tab>
+
+  <mat-tab label="Équipes">
+
+    <div class="tab-background">
+      <mat-form-field appearance="fill" color="primary">
+        <mat-label style="color: white">
+          <mat-icon aria-hidden="false" aria-label="Example home icon" class="icon">search</mat-icon>
+          Chercher par nom
+        </mat-label>
+        <label>
+          <input matInput (keyup)="applyFilter($event)" placeholder="Ex. SKTT1" #input class="table">
+        </label>
+      </mat-form-field>
+
+      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" [bgColor]="">
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef>Nom de team</th>
+          <td mat-cell *matCellDef="let element"><a href="team-details" class="table-a"> {{element.name}} </a></td>
+        </ng-container>
+
+        <!-- leader Column -->
+        <ng-container matColumnDef="leader">
+          <th mat-header-cell *matHeaderCellDef>Leader</th>
+          <td mat-cell *matCellDef="let element"> {{element.leader}} </td>
+        </ng-container>
+
+        <!-- membre Column -->
+        <ng-container matColumnDef="membre">
+          <th mat-header-cell *matHeaderCellDef>Membres</th>
+          <td mat-cell *matCellDef="let element"> {{element.membre}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+        <!-- Row shown when there is no matching data. -->
+        <tr class="mat-row" *matNoDataRow>
+          <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+        </tr>
+      </table>
+    </div>
+
+  </mat-tab>
+</mat-tab-group>

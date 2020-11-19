@@ -15,7 +15,6 @@
     //font-size: 2rem;
     width: 100%;
     height: 50px;
-    margin: 10px 0;
     border: 1px solid transparent;
     border-radius: 5px;
     text-align: center;
@@ -30,7 +29,7 @@
     }
   }
 
-  p, a{
+  p, a {
     text-align: center;
     color: $color-white;
     text-decoration: none;
@@ -61,6 +60,23 @@
       cursor: pointer;
       @include transition;
     }
+  }
+
+  .select-signin {
+    background-color: white;
+    border-radius: 5px 5px 0 0;
+    height: 55px;
+    margin-top: 20px;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+
+  .checkbox-signin {
+    padding: 10px 0;
+  }
+
+  &--error {
+    color: $color-defeat-2;
   }
 }
 

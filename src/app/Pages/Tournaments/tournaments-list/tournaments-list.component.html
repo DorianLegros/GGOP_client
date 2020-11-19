@@ -18,8 +18,8 @@
 
         <!-- Name Column -->
         <ng-container matColumnDef="name">
-          <th mat-header-cell *matHeaderCellDef>Nom de team</th>
-          <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+          <th mat-header-cell *matHeaderCellDef>Nom du tournoi</th>
+          <td mat-cell *matCellDef="let element"><a href="tournois-infos" class="table-a">{{element.name}}</a></td>
         </ng-container>
 
         <!-- leader Column -->
@@ -30,7 +30,7 @@
 
         <!-- membre Column -->
         <ng-container matColumnDef="membre">
-          <th mat-header-cell *matHeaderCellDef>Membres</th>
+          <th mat-header-cell *matHeaderCellDef>Nb équipe</th>
           <td mat-cell *matCellDef="let element"> {{element.membre}} </td>
         </ng-container>
 

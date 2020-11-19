@@ -2,7 +2,8 @@
 
 .matchmaking {
   &__list {
-    background-color: $color-grey-dark-3;
+    background-color: rgba($color-grey-dark-3, 0.9);
+    border-bottom: solid 1px rgba(0,0,0,0.2);
 
     &--component {
       width: 50%;
