@@ -34,7 +34,7 @@
 
     <mat-form-field appearance="fill" class="select-signin">
     <mat-label>Choisir une région</mat-label>
-    <mat-select name="serveur-riot" id="serveur-riot" [(ngModel)]="newUser.riot_server_id" required #riotServer="ngModel" class="form__type-input">
+    <mat-select name="serveur-riot" id="serveur-riot" [(ngModel)]="newUser.riotServerId" required #riotServer="ngModel" class="form__type-input">
       <mat-option *ngFor="let riotServ of riotServersList" value="{{riotServ.id}}">{{riotServ.name}}</mat-option>
     </mat-select>
     </mat-form-field>
