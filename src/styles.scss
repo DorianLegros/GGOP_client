@@ -185,9 +185,12 @@ svg:hover {
 
 .report {
   padding: 20px;
-  max-width: 300px;
+  max-width: 200px;
   margin: 0 auto;
-  height: 100px;
+
+  &__txt {
+    margin-top: 10px;
+  }
 
   &__img,
   &__txt {
@@ -196,7 +199,7 @@ svg:hover {
     text-align: center;
 
     img {
-      width: 33.33%;
+      width: 50px;
     }
 
     a {
