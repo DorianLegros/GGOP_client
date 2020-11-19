@@ -2,7 +2,6 @@
   <h1>Connexion</h1>
   <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
 
-    <label for="email"></label>
     <input name="email" type="text" id="email" placeholder="Adresse email" required #email="ngModel" [(ngModel)]="loginInfos.email" class="form__type-input">
     <div *ngIf="email.invalid && (email.touched)" class="alert alert-danger">
       <div *ngIf="email.errors.required" class="form--error">Veuillez renseigner votre adresse email.</div>
