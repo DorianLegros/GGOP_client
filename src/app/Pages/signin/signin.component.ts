@@ -39,7 +39,7 @@ export class SigninComponent implements OnInit {
         this.router.navigate(['/connexion']);
       },
       err => {
-        this.errorMessage = err.error.message;
+        this.errorMessage = err.error;
         this.registerFailed = true;
       }
     );
