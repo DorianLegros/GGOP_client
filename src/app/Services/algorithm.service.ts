@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {UserProfileService} from './user-profile.service';
 import {UserProfile} from '../Models/user-profile';
+import {User} from '../Models/user';
 
 @Injectable({
   providedIn: 'root'
@@ -21,7 +22,7 @@ export class AlgorithmService {
     const user: UserProfile = await this.userProfileService.getUserProfileById(playerId).toPromise();
 
     // get player reputation ratio from user profile
-    const algoPlayerRank = user.rank;
+    // const algoPlayerRank = user.rank;
     const algoPlayerReputationRatio = user.reputation.ratio;
 
     // get player principal play hour from user games history
@@ -36,39 +37,50 @@ export class AlgorithmService {
 
 
     // get the list of all users from the website
+    const targetsList = await this.userProfileService.getAllUsersProfile();
 
     // create a list from the first with scores properties
+    const targetsListWithScore = [];
+    targetsList.forEach((target) => {
+      if (target.userId !== user.userId) {
+        const objectToPush = {
+          target, globalScore: 0, playLevelScore: 0, fairPlayScore: 0, compatibilityScore: 0, notCompatible: false
+        };
+        targetsListWithScore.push(objectToPush);
+      }
+    });
 
     // for each user in the list
+    targetsListWithScore.forEach((target) => {
+      const targetInfos = target.target;
+      // get its main champion from its profile if not null
+      let algoTargetMainChampion;
+      algoTargetMainChampion = targetInfos.mainChampion !== null ? targetInfos.mainChampion : null;
 
-    // get its main champion from its profile if not null
+      // get its rank and reputation ratio
+      // const algoTargetRank = targetInfos.rank;
+      const algoTargetReputationRatio = targetInfos.reputation.ratio;
 
-    // get its rank
+      // for each game in its history
+      // if its main champion is null, get the champion played to get the most played champion
+      algoTargetMainChampion = algoTargetMainChampion !== null ?
+        algoTargetMainChampion : this.getPlayerMainChampionFromGameHistory(targetInfos);
 
-    // for each game in its history
+      // get the time when the game was played, to get its principal play time period
+      const algoTargetPlayHour = this.getPlayerPrincipalPlayHourFromGameHistory(targetInfos);
 
-    // if its main champion is null, get the champion played to get the most played champion
+      // find if the game is a classic game (to avoid ARAM players) and add it to "algoClassicGamesList"
+      const algoTargetPrincipalGamesList = this.getPlayerPrincipalGamesFromGameHistory(targetInfos, '', 'target');
 
-    // get the time when the game was played, to get its principal play time period
+      // if the classic games list is empty, its score is 0
+      if (algoTargetPrincipalGamesList.length < 1) {
+        target.notCompatible = true;
+      }
 
-    // find if the game is a classic game (to avoid ARAM players) and add it to "algoClassicGamesList"
-
-    // if its main champion in user profile is null, get its most played champion
-
-    // if its main champion is equal to player's main champion, they're not compatible
-    if (algoCompatibilityScoreActive) {
-      continue;
-    }
-
-    // if the classic games list is empty, its score is 0
-
-    // get its reputation ratio
-
-    // get its principal play period time
-
-    // for each classic game in classic games list
-
-    // get KDA rate and winrate
+      // get KDA rate and winrate
+      const algoTargetKDAAverage = this.getKDARateFromGameList(targetInfos.userId, algoTargetPrincipalGamesList);
+      const algoTargetWinRate = this.getWinRateFromGamesList(algoTargetPrincipalGamesList);
+    });
 
     // make comparisons between player infos and targeted user to define a score for each score
 
@@ -93,6 +105,7 @@ export class AlgorithmService {
     // get principal play hour
     let playerNumberPlayedInPrincipalHour = 0;
     playerUniquePlayHoursArray.forEach((hour) => {
+      // tslint:disable-next-line:no-unused-expression
       const playerNumberPlayedInHour = playerPlayHoursArray.filter((value => { value === hour; })).length;
       if (playerNumberPlayedInHour > playerNumberPlayedInPrincipalHour) {
         playerNumberPlayedInPrincipalHour = playerNumberPlayedInHour;
@@ -103,26 +116,64 @@ export class AlgorithmService {
     return playerPlayHour;
   }
 
-  getPlayerPrincipalGamesFromGameHistory(user: UserProfile, lane: string) {
+  getPlayerPrincipalGamesFromGameHistory(user: UserProfile, lane: string, forWho = '') {
     const playerPrincipalGames = [];
 
     user.gameHistory.forEach((game) => {
       if (game.gameMode === 'CLASSIC') {
-        let userTeam;
-        game.teams.forEach((team) => {
-          if (team.win === game.result) { userTeam = team; }
-        });
-        let userGameStats;
-        userTeam.forEach((player) => {
-          if (player.userId === user.id) { userGameStats = player; }
-        });
-        if (userGameStats.lane === lane) {
+        if (forWho === 'target') {
           playerPrincipalGames.push(game);
+        } else {
+          let userTeam;
+          game.teams.forEach((team) => {
+            if (team.win === game.result) { userTeam = team; }
+          });
+          let userGameStats;
+          userTeam.forEach((player) => {
+            if (player.userId === user.id) { userGameStats = player; }
+          });
+          if (userGameStats.lane === lane) {
+            playerPrincipalGames.push(game);
+          }
         }
       }
     });
 
     return playerPrincipalGames;
+  }
+
+  getPlayerMainChampionFromGameHistory(user: UserProfile) {
+    let playerMainChampion;
+    const playerChampionsArray = [];
+    const playerUniqueChampionsArray = [];
+
+    user.gameHistory.forEach((game) => {
+      let userTeam;
+      game.teams.forEach((team) => {
+        if (team.win === game.result) { userTeam = team; }
+      });
+      let userGameStats;
+      userTeam.forEach((player) => {
+        if (player.userId === user.userId) { userGameStats = player; }
+      });
+
+      const champion = userGameStats.championId;
+      playerChampionsArray.push(champion);
+      if (!playerChampionsArray.includes(champion)) { playerUniqueChampionsArray.push(champion); }
+
+    });
+
+    // get most played champion
+    let playerNumberPlayedWithMainChampion = 0;
+    playerUniqueChampionsArray.forEach((champion) => {
+      // tslint:disable-next-line:no-unused-expression
+      const playerNumberPlayedWithChampion = playerChampionsArray.filter((value => { value === champion; })).length;
+      if (playerNumberPlayedWithChampion > playerNumberPlayedWithMainChampion) {
+        playerNumberPlayedWithMainChampion = playerNumberPlayedWithChampion;
+        playerMainChampion = champion;
+      }
+    });
+    return playerMainChampion;
   }
 
   getKDARateFromGameList(userId, gameList) {
