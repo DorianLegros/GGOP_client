@@ -23,7 +23,7 @@ export class AlgorithmService {
 
     // get player reputation ratio from user profile
     // const algoPlayerRank = user.rank;
-    const algoPlayerReputationRatio = user.reputation.ratio;
+    const algoPlayerReputationRatio = user.reputation[0].ratio;
 
     // get player principal play hour from user games history
     const algoPlayerPlayHour = this.getPlayerPrincipalPlayHourFromGameHistory(user);
@@ -59,7 +59,7 @@ export class AlgorithmService {
 
       // get its rank and reputation ratio
       // const algoTargetRank = targetInfos.rank;
-      const algoTargetReputationRatio = targetInfos.reputation.ratio;
+      const algoTargetReputationRatio = targetInfos.reputation[0].ratio;
 
       // for each game in its history
       // if its main champion is null, get the champion played to get the most played champion
