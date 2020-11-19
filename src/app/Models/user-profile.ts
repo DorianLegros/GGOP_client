@@ -1,7 +1,7 @@
 export class UserProfile {
   id: number;
   userId: number;
-  mainChampionId: number;
+  mainChampion: number;
   mainRole: string;
   rank: string;
   reputation: {
@@ -18,12 +18,14 @@ export class UserProfile {
   gameHistory: [{
     date: Date;
     result: string;
+    gameMode: string;
     teams: [{
-      win: boolean;
+      win: string;
       players: [{
         userId: number; // if that user does exist in the application, riotAccountId if doesn't
         userPseudo: string; // if that user does exist in the application, summonerName if doesn't
         championId: number;
+        lane: string;
         kills: number;
         deaths: number;
         assists: number;
