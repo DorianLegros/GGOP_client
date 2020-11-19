@@ -55,13 +55,14 @@ svg:hover {
 
 .profil {
   width: 100%;
-  background-color: #0E82CF;
+  background-color: rgba($color-grey-dark-3, 0.9);
   position: relative;
+  height: 100px;
 
   h1 {
     text-align: center;
-    height: 120px;
-    line-height: 120px;
+    height: 100px;
+    line-height: 100px;
     width: 100%;
     display: inline-block;
   }
@@ -69,7 +70,7 @@ svg:hover {
   img {
     position: absolute;
     right: 0;
-    width: 120px;
+    width: 100px;
   }
 }
 
