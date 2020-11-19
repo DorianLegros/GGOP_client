@@ -57,6 +57,7 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 import { authInterceptorProviders } from './Helpers/auth.interceptor';
 import { HeaderComponent } from './Pages/header/header.component';
+import { DisconnectComponent } from './Pages/settings/Modals/disconnect/disconnect.component';
 
 @NgModule({
   declarations: [
@@ -93,7 +94,8 @@ import { HeaderComponent } from './Pages/header/header.component';
     HistoricComponent,
     SettingsComponent,
     PrivacyComponent,
-    HeaderComponent
+    HeaderComponent,
+    DisconnectComponent
   ],
   imports: [
     BrowserModule,

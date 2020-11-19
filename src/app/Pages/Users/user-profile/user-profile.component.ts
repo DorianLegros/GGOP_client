@@ -4,6 +4,7 @@ import {HonorComponent} from '../Modals/honor/honor.component';
 import {ReportComponent} from '../Modals/report/report.component';
 import {MatTableDataSource} from '@angular/material/table';
 import {HistoricComponent} from '../Modals/historic/historic.component';
+import {TokenStorageService} from '../../../Services/token-storage.service';
 
 export interface MyTeam {
   name: string;
@@ -13,16 +14,11 @@ export interface MyTeam {
 
 
 const ELEMENT_DATA: MyTeam[] = [
-  {name: 'My Team', leader: 'Domingo', membre: 5},
-  {name: 'Fnatic', leader: 'Charles', membre: 5},
-  {name: 'Cloud9', leader: 'Nuage neuf', membre: 4},
-  {name: 'Unicorn of Love', leader: 'Duonicorn', membre: 3},
-  {name: 'SKTT1', leader: 'Faker', membre: 5},
-  {name: 'Gros chinois', leader: 'Faker', membre: 5},
-  {name: 'Brother of texas', leader: 'Chuck Noris', membre: 5},
-  {name: 'Pussycat dols', leader: 'Ariana Grand dé', membre: 4},
-  {name: 'Team Skeat', leader: 'Jordi el ninio', membre: 5},
-  {name: 'Taxi Driver', leader: 'Manu Payet', membre: 4},
+  {name: 'My Team', leader: 'Rayleigh', membre: 5},
+  {name: 'My Second Team', leader: 'TooFat4You', membre: 5},
+  {name: 'My Third Team', leader: 'Druxys', membre: 4},
+  {name: 'Another One', leader: 'DoRaideN', membre: 3},
+  {name: 'Ones More', leader: 'High Noon McCree', membre: 5},
 ];
 
 @Component({
@@ -31,13 +27,15 @@ const ELEMENT_DATA: MyTeam[] = [
   styleUrls: ['./user-profile.component.scss']
 })
 export class UserProfileComponent implements OnInit {
-
-  constructor(private dialog: MatDialog) { }
+  username: string;
+  constructor(private dialog: MatDialog, private tokenStorage: TokenStorageService) { }
 
   displayedColumns: string[] = ['name', 'leader', 'membre'];
   dataSource = new MatTableDataSource(ELEMENT_DATA);
 
   ngOnInit(): void {
+    const sessionUser = this.tokenStorage.getUser();
+    this.username = sessionUser.username;
   }
 
   openDialogHonor() {

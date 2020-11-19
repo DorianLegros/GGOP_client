@@ -11,5 +11,4 @@ export class UserProfileHistoryDetailsComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
 }

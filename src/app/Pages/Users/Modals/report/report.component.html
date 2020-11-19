@@ -7,7 +7,7 @@
     <mat-radio-button class="example-radio-button" *ngFor="let report of reports" [value]="report" color="primary">
       {{report}}
     </mat-radio-button>
-    <button mat-raised-button color="warn" class="modal__btn">
+    <button mat-dialog-close mat-raised-button color="warn" class="modal__btn">
       <img src="assets/images/icons/report.svg" alt="Report icon">Report ce joueur
     </button>
   </mat-radio-group>

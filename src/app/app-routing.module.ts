@@ -9,6 +9,13 @@ import {TournamentsListComponent} from './Pages/Tournaments/tournaments-list/tou
 import {MatchmakingsListComponent} from './Pages/Matchmakings/matchmakings-list/matchmakings-list.component';
 import {SettingsComponent} from './Pages/settings/settings.component';
 import {TournamentDetailsComponent} from './Pages/Tournaments/tournament-details/tournament-details.component';
+import {TournamentSummaryComponent} from './Pages/Tournaments/tournament-summary/tournament-summary.component';
+import {UserProfileHistoryDetailsComponent} from './Pages/Users/user-profile-history-details/user-profile-history-details.component';
+import {MatchmakingDetailsComponent} from './Pages/Matchmakings/matchmaking-details/matchmaking-details.component';
+import {MatchmakingsMyListComponent} from './Pages/Matchmakings/matchmakings-my-list/matchmakings-my-list.component';
+import {TeamDetailsComponent} from './Pages/Teams/team-details/team-details.component';
+import {UserProfileTeamsComponent} from './Pages/Users/user-profile-teams/user-profile-teams.component';
+import {TournamentFollowComponent} from './Pages/Tournaments/tournament-follow/tournament-follow.component';
 
 
 const routes: Routes = [
@@ -20,7 +27,14 @@ const routes: Routes = [
   {path: 'tournois', component: TournamentsListComponent},
   {path: 'matchmaking', component: MatchmakingsListComponent},
   {path: 'reglage', component: SettingsComponent},
-  {path: 'tournois-details', component: TournamentDetailsComponent}
+  {path: 'tournois-details', component: TournamentDetailsComponent},
+  {path: 'tournois-resume', component: TournamentSummaryComponent},
+  {path: 'historique-resume', component: UserProfileHistoryDetailsComponent},
+  {path: 'matchmaking-details', component: MatchmakingDetailsComponent},
+  {path: 'matchmaking-resume', component: MatchmakingsMyListComponent},
+  {path: 'team-details', component: TeamDetailsComponent},
+  {path: 'team-profil', component: UserProfileTeamsComponent},
+  {path: 'tournois-infos', component: TournamentFollowComponent}
 ];
 
 @NgModule({
