@@ -45,14 +45,13 @@
           (horaires de jeu par exemple) ?</label></div>
 
       <input *ngIf="f.form.valid" type="submit" class="form__btn-submit" value="Chercher">
-      <input *ngIf="!f.form.valid" type="submit" disabled class="form__btn-submit disabled" value="Chercher">
-    </form>
-  </div>
-  <div class="player-found-list">
-    <div *ngIf="compatiblePlayersDisplayOk">
-      <div *ngFor="let compatiblePlayer of compatiblePlayers">
-        {{ compatiblePlayer.name }}
-      </div>
+    <input *ngIf="!f.form.valid" type="submit" disabled class="form__btn-submit disabled" value="Chercher">
+  </form>
+</div>
+<div class="player-found-list">
+  <div *ngIf="compatiblePlayersDisplayOk">
+    <div *ngFor="let compatiblePlayer of compatiblePlayers">
+      {{ compatiblePlayer.user_id }}
     </div>
   </div>
 </div>
