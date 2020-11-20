@@ -25,7 +25,10 @@
         <div class="clear"></div>
       </div>
     </div>
-    <a *ngIf="!team.players[i]" (click)="openDialog(team)" class="team__card--section-a">Ajouter</a>
+    <div class="btn-add-team">
+    <a *ngIf="!team.players[i]" (click)="openDialog(team)" class="team__card--section-a">
+      <span class="material-icons icon-add">person_add</span>Ajouter</a>
+    </div>
     </div>
 
 
