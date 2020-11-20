@@ -12,7 +12,7 @@ export class AlgorithmService {
   constructor(private httpClient: HttpClient, private userProfileService: UserProfileService) {
   }
 
-  async searchCompatiblePlayers(playerId, algoPlayerMainChampion, algoPlayerMainLane, algoPlayerExcludeSameMainLane, scoresProperties) {
+  async searchCompatiblePlayers(playerId, algoPlayerMainChampion, algoPlayerMainLane, algoPlayerExcludeSameMainLane, scoresProperties): Promise<any[]> {
     // define which score properties are taken in consideration by the player
     const algoPlayLevelScoreActive = !!scoresProperties.includes('playLevelScore');
     const algoFairPlayScoreActive = !!scoresProperties.includes('fairPlayScore');
@@ -21,28 +21,32 @@ export class AlgorithmService {
     // get player profile
     const user: UserProfile = await this.userProfileService.getUserProfileById(playerId).toPromise();
 
+    console.log(user);
     // get player reputation ratio from user profile
     // const algoPlayerRank = user.rank;
     const algoPlayerReputationRatio = user.reputation[0].ratio;
 
     // get player principal play hour from user games history
     const algoPlayerPlayHour = this.getPlayerPrincipalPlayHourFromGameHistory(user);
+    console.log(algoPlayerPlayHour);
 
     // get player games where it play at its main lane
     const algoPlayerPrincipalGamesList = this.getPlayerPrincipalGamesFromGameHistory(user, algoPlayerMainLane);
 
     // with its main games, find its KDA rate and win rate
     const algoPlayerKDAAverage = this.getKDARateFromGameList(user.userId, algoPlayerPrincipalGamesList);
+    console.log(algoPlayerKDAAverage);
     const algoPlayerWinRate = this.getWinRateFromGamesList(algoPlayerPrincipalGamesList);
+    console.log(algoPlayerWinRate);
 
 
     // get the list of all users from the website
-    const targetsList = await this.userProfileService.getAllUsersProfile();
+    const targetsList = await this.userProfileService.getAllUsersProfile().toPromise();
 
     // create a list from the first with scores properties
     const targetsListWithScore = [];
     targetsList.forEach((target) => {
-      if (target.userId !== user.userId) {
+      if (target.user_id !== user.userId) {
         const objectToPush = {
           target, globalScore: 0, playLevelScore: 0, fairPlayScore: 0, compatibilityScore: 0, notCompatible: false
         };
@@ -50,6 +54,7 @@ export class AlgorithmService {
       }
     });
 
+    console.log(targetsListWithScore);
     // for each user in the list
     targetsListWithScore.forEach((target) => {
       const targetInfos = target.target;
@@ -71,6 +76,7 @@ export class AlgorithmService {
 
       // find if the game is a classic game (to avoid ARAM players) and add it to "algoClassicGamesList"
       const algoTargetPrincipalGamesList = this.getPlayerPrincipalGamesFromGameHistory(targetInfos, '', 'target');
+      console.log(algoTargetPrincipalGamesList);
 
       // if the classic games list is empty, its score is 0
       if (algoTargetPrincipalGamesList.length < 1) {
@@ -84,6 +90,8 @@ export class AlgorithmService {
 
       // make comparisons between player infos and targeted user to define a score for each score
       /* comparison for play level score */
+      console.log(algoTargetKDAAverage);
+      console.log(algoTargetWinRate);
       const algoPlayerKDAAverages = algoPlayerKDAAverage.split(':');
       const algoTargetKDAAverages = algoTargetKDAAverage.split(':');
       // if for the rank
@@ -149,13 +157,13 @@ export class AlgorithmService {
     // if global score is greater or equal to 3, targeted user is placed in the compatible players list
     const compatibleTargetsList = [];
     targetsListWithScore.forEach((target) => {
-      console.log(target.globalScore);
-      if (target.globalScore <= 3) {
+      if (target.globalScore >= 3) {
         compatibleTargetsList.push(target.target);
       }
     });
 
     // return list of compatible players
+    console.log(compatibleTargetsList);
     return compatibleTargetsList;
   }
 
@@ -164,8 +172,9 @@ export class AlgorithmService {
     const playerPlayHoursArray = [];
     const playerUniquePlayHoursArray = [];
 
-    user.gameHistory.forEach((game) => {
-      const playHour = game.date.getHours();
+    user.game_history.forEach((game) => {
+      const hour = new Date(game.date);
+      const playHour = hour.getHours();
       playerPlayHoursArray.push(playHour);
       if (!playerUniquePlayHoursArray.includes(playHour)) { playerUniquePlayHoursArray.push(playHour); }
     });
@@ -174,7 +183,7 @@ export class AlgorithmService {
     let playerNumberPlayedInPrincipalHour = 0;
     playerUniquePlayHoursArray.forEach((hour) => {
       // tslint:disable-next-line:no-unused-expression
-      const playerNumberPlayedInHour = playerPlayHoursArray.filter((value => { value === hour; })).length;
+      const playerNumberPlayedInHour = playerPlayHoursArray.filter((value => value === hour )).length;
       if (playerNumberPlayedInHour > playerNumberPlayedInPrincipalHour) {
         playerNumberPlayedInPrincipalHour = playerNumberPlayedInHour;
         playerPlayHour = hour;
@@ -187,7 +196,7 @@ export class AlgorithmService {
   getPlayerPrincipalGamesFromGameHistory(user: UserProfile, lane: string, forWho = '') {
     const playerPrincipalGames = [];
 
-    user.gameHistory.forEach((game) => {
+    user.game_history.forEach((game) => {
       if (game.gameMode === 'CLASSIC') {
         if (forWho === 'target') {
           playerPrincipalGames.push(game);
@@ -215,7 +224,7 @@ export class AlgorithmService {
     const playerChampionsArray = [];
     const playerUniqueChampionsArray = [];
 
-    user.gameHistory.forEach((game) => {
+    user.game_history.forEach((game) => {
       let userTeam;
       game.teams.forEach((team) => {
         if (team.win === game.result) { userTeam = team; }
@@ -258,6 +267,7 @@ export class AlgorithmService {
       userTeam.forEach((player) => {
         if (player.userId === userId) { userGameStats = player; }
       });
+      console.log(userGameStats);
       killsValuesArray.push(userGameStats.kills);
       deathsValuesArray.push(userGameStats.deaths);
       assistsValuesArray.push(userGameStats.assists);

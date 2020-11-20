@@ -39,11 +39,11 @@
     </mat-form-field>
 
     <div *ngIf="riotServer.invalid && (riotServer.touched)" class="alert alert-danger">
-      <div class="form--error" *ngIf="riotServer.errors.required">Une serveur Riot doit être renseigné.</div>
+      <div class="form--error" *ngIf="riotServer.errors.required">Un serveur Riot doit être renseigné.</div>
     </div>
 
     <div class="checkbox-signin"><mat-checkbox [(ngModel)]="policyAccepted" color="primary" id="checkbox" name="policy"></mat-checkbox>
-    <label for="checkbox" style="font-size: 1.5rem">j'ai lu et j'accepte la politique de confidentialité</label></div>
+    <label for="checkbox" style="font-size: 1.5rem">J'ai lu et j'accepte la politique de confidentialité</label></div>
 
     <div
       class="alert alert-danger" role="alert" *ngIf="f.submitted && registerFailed"> Problème lors de la création de votre compte {{ errorMessage }}

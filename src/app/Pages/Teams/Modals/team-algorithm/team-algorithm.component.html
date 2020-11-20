@@ -1,1 +1,43 @@
-<p>team-algorithm works!</p>
+<h1>{{data.team.name}}</h1>
+<div class="form">
+  <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+
+    <label for="champion" style="display: none"></label>
+    <input type="text" name="champion" id="champion" placeholder="Votre main champion" [(ngModel)]="algoObject.champion" required #champion="ngModel" class="form__type-input">
+    <div *ngIf="champion.invalid && (champion.touched)" class="alert alert-danger">
+      <div class="form--error" *ngIf="champion.errors.required">Un champion doit être renseigné.</div>
+    </div>
+
+    <mat-form-field appearance="fill" class="select-signin">
+      <mat-label>Choisir une région</mat-label>
+      <mat-select name="serveur-riot" id="serveur-riot" [(ngModel)]="algoObject.lane" required #lane="ngModel" class="form__type-input">
+        <mat-option value="TOP">Top Lane</mat-option>
+        <mat-option value="MIDDLE">Mid Lane</mat-option>
+        <mat-option value="BOTTOM">Bot Lane</mat-option>
+        <mat-option value="JUNGLE">Jungle</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <div class="checkbox-signin"><mat-checkbox [(ngModel)]="algoObject.excludeSameLane" color="primary" id="excludeSameLane" name="policy"></mat-checkbox>
+      <label for="excludeSameLane" style="font-size: 1.5rem">Exclure les joueurs jouant principalement au même poste ?</label></div>
+
+    <div class="checkbox-signin"><mat-checkbox [(ngModel)]="algoObject.excludePlayLevelScore" color="primary" id="excludePlayLevelScore" name="policy"></mat-checkbox>
+      <label for="excludePlayLevelScore" style="font-size: 1.5rem">Ignorer le niveau de joueur ?</label></div>
+
+    <div class="checkbox-signin"><mat-checkbox [(ngModel)]="algoObject.excludeFairPlayScore" color="primary" id="excludeFairPlayScore" name="policy"></mat-checkbox>
+      <label for="excludeFairPlayScore" style="font-size: 1.5rem">Ignorer la réputation du joueur ?</label></div>
+
+    <div class="checkbox-signin"><mat-checkbox [(ngModel)]="algoObject.excludeCompatibilityScore" color="primary" id="excludeCompatibilityScore" name="policy"></mat-checkbox>
+      <label for="excludeCompatibilityScore" style="font-size: 1.5rem">Ignorer la compatibilité autre du joueur (horaires de jeu par exemple) ?</label></div>
+
+    <input *ngIf="f.form.valid" type="submit" class="form__btn-submit" value="Chercher">
+    <input *ngIf="!f.form.valid" type="submit" disabled class="form__btn-submit disabled" value="Chercher">
+  </form>
+</div>
+<div class="player-found-list">
+  <div *ngIf="compatiblePlayersDisplayOk">
+    <div *ngFor="let compatiblePlayer of compatiblePlayers">
+      {{ compatiblePlayer.name }}
+    </div>
+  </div>
+</div>

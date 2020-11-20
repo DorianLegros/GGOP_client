@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
+import {TeamService} from '../../../Services/team.service';
+import {TokenStorageService} from '../../../Services/token-storage.service';
+import {Router} from '@angular/router';
 
 export interface ListTeam {
   name: string;
@@ -28,13 +31,21 @@ const ELEMENT_DATA: ListTeam[] = [
   styleUrls: ['./teams-list.component.scss']
 })
 export class TeamsListComponent implements OnInit {
-
-  constructor() { }
-
+  newTeam: any = {};
   displayedColumns: string[] = ['name', 'leader', 'membre'];
-  dataSource = new MatTableDataSource(ELEMENT_DATA);
+  dataSource;
+  teamCreationFailed = false;
+  errorMessage = '';
+
+  constructor(private teamService: TeamService, private tokenStorageService: TokenStorageService,
+              private router: Router) { }
 
   ngOnInit(): void {
+    const sessionUser = this.tokenStorageService.getUser();
+    this.teamService.getUserTeamsById(sessionUser.userId).subscribe(teams => {
+      console.log(teams);
+      this.dataSource = teams;
+    });
   }
 
   applyFilter(event: Event) {
@@ -42,4 +53,15 @@ export class TeamsListComponent implements OnInit {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
+  onSubmit() {
+    console.log(this.newTeam);
+    const sessionUser = this.tokenStorageService.getUser();
+    this.newTeam.creator_id = sessionUser.userId;
+    this.teamService.createTeam(JSON.stringify(this.newTeam)).subscribe(data => {
+      this.router.navigate(['team-details', data]);
+    }, error => {
+      this.errorMessage = error.error;
+      this.teamCreationFailed = true;
+    });
+  }
 }

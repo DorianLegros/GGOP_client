@@ -15,7 +15,8 @@ export class UserProfile {
       number: number;
     }]
   };
-  gameHistory: [{
+  // tslint:disable-next-line:variable-name
+  game_history: [{
     date: Date;
     result: string;
     gameMode: string;
