@@ -5,8 +5,8 @@ export class Team {
   winRate: number;
   isComplete: boolean;
   players: [{
-    userId: number;
-    userPseudo: string;
+    user_id: number;
+    user_pseudo: string;
     status: string;
   }];
 }

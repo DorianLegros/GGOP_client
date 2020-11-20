@@ -12,7 +12,7 @@ export class AlgorithmService {
   constructor(private httpClient: HttpClient, private userProfileService: UserProfileService) {
   }
 
-  async searchCompatiblePlayers(playerId, algoPlayerMainChampion, algoPlayerMainLane, algoPlayerExcludeSameMainLane, scoresProperties) {
+  async searchCompatiblePlayers(playerId, algoPlayerMainChampion, algoPlayerMainLane, algoPlayerExcludeSameMainLane, scoresProperties): Promise<any[]> {
     // define which score properties are taken in consideration by the player
     const algoPlayLevelScoreActive = !!scoresProperties.includes('playLevelScore');
     const algoFairPlayScoreActive = !!scoresProperties.includes('fairPlayScore');
