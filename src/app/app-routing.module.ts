@@ -32,7 +32,7 @@ const routes: Routes = [
   {path: 'historique-resume', component: UserProfileHistoryDetailsComponent},
   {path: 'matchmaking-details', component: MatchmakingDetailsComponent},
   {path: 'matchmaking-resume', component: MatchmakingsMyListComponent},
-  {path: 'team-details', component: TeamDetailsComponent},
+  {path: 'team-details/:id', component: TeamDetailsComponent},
   {path: 'team-profil', component: UserProfileTeamsComponent},
   {path: 'tournois-infos', component: TournamentFollowComponent}
 ];
