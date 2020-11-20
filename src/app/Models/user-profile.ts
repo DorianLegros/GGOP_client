@@ -1,6 +1,6 @@
 export class UserProfile {
   id: number;
-  userId: number;
+  user_id: number;
   mainChampion: number;
   mainRole: string;
   rank: string;
